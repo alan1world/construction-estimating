@@ -29,6 +29,8 @@ class SQLiteHandler:
         cur.execute("DROP TABLE IF EXISTS contracts;")
         cur.execute("DROP TABLE IF EXISTS hubs;")
         cur.execute("DROP TABLE IF EXISTS enquiries;")
+        cur.execute("DROP TABLE IF EXISTS questions;")
+        cur.execute("DROP TABLE IF EXISTS answers;")
         conn.commit()
         conn.close()
     
@@ -69,12 +71,27 @@ class SQLiteHandler:
                     ,contract_id INTEGER NOT NULL
                     ,hub_id INTEGER NOT NULL
                     );"""
+        create_questions = """CREATE TABLE IF NOT EXISTS questions (
+                    question_id INTEGER PRIMARY KEY
+                    ,question TEXT NOT NULL
+                    ,description TEXT NOT NULL
+                    ,"order" INTEGER NOT NULL UNIQUE
+                    ,multiselect INTEGER NOT NULL DEFAULT 1
+                    );"""
+        create_answers = """CREATE TABLE IF NOT EXISTS answers (
+                    answer_id INTEGER PRIMARY KEY
+                    ,answer TEXT NOT NULL
+                    ,question_id INTEGER NOT NULL
+                    ,"default" INTEGER NOT NULL DEFAULT 0
+                    );"""
         cur.execute(create_gateways)
         cur.execute(create_estimatetypes)
         cur.execute(create_partners)
         cur.execute(create_contracts)
         cur.execute(create_hubs)
         cur.execute(create_enquiries)
+        cur.execute(create_questions)
+        cur.execute(create_answers)
         conn.commit()
         conn.close()
     
@@ -110,12 +127,83 @@ class SQLiteHandler:
                     ,('Name2', 'Atfam', '2@Atfam.com', '', 'ENV124', 2, '',
                     2, 2, 2, 3)
                     ;"""
+        insert_questions = """INSERT INTO questions 
+                    (question, description, "order", multiselect)
+                    VALUES
+                    ('What is the level of access to the site', 'TBC', 1, 1)
+                    ,('Are there any official designations for the site?', 'TBC', 2, 1)
+                    ,('What type of site compounds do you have?', 'TBC', 3, 1)
+                    ,('Is the project in a remote location with difficult access to resources', 'TBC', 4, 0)
+                    ,('How is the project classified?', 'TBC', 5, 0)
+                    ,('Is there hazardous waste present on the site?', 'TBC', 6, 0)
+                    ,('How would you describe the ground conditions on the site?', 'TBC', 7, 0)
+                    ,('What is required for the existing non-Project structures at the site?', 'TBC', 8, 0)
+                    ,('What type of species are present/anticipated on the site?', 'TBC', 9, 1)
+                    ,('Is the project influenced by any of the following?', 'TBC', 10, 1)
+                    ,('Is the project completion milestone constrained due to an external factor?', 'TBC', 11, 0)
+                    ,('What ultilies are not available to connect for the construction work?', 'TBC', 12, 1)
+                    ;"""
+        insert_answers = """INSERT INTO answers 
+                    (answer, question_id, "default")
+                    VALUES
+                    ('Physically constrained access', 1, 0)
+                    ,('Unconstrained access', 1, 1)
+                    ,('Time-limited access (e.g. certain hours accessible)', 1, 0)
+                    ,('Third-party access (e.g. access through land owned by others, access rights needed)', 1, 0)
+                    ,('Area of oustanding natural beauty (AONB)', 2, 0)
+                    ,('National Park', 2, 0)
+                    ,('SSSIS, SACs, SPAs, Ramsar wetlands', 2, 0)
+                    ,('Marine Conservation Zones', 2, 0)
+                    ,('Conservation Zone', 2, 0)
+                    ,('TPO (tree protection orders)', 2, 0)
+                    ,('No designation', 2, 1)
+                    ,('Standard/main compound', 3, 1)
+                    ,('Satellite compound', 3, 0)
+                    ,('No compound (welfare only)', 3, 0)
+                    ,('Highways', 3, 0)
+                    ,('Yes (Significant challenges in accessing materials and labour)', 4, 0)
+                    ,('No (Easily accessible with no major logistical issues)', 4, 1)
+                    ,('Standard Project (£1m-£50m)', 5, 1)
+                    ,('Major Project (£50m+)', 5, 0)
+                    ,('Minor Project (below £1m)', 5, 0)
+                    ,('Yes', 6, 0)
+                    ,('No', 6, 1)
+                    ,('No issues', 7, 1)
+                    ,('Minor issues', 7, 0)
+                    ,('Severe issues', 7, 0)
+                    ,('No requirement', 8, 1)
+                    ,('Removal (Complete demolition and disposal)', 8, 0)
+                    ,('Relocation or diversion (Moving structures to a new location, service or road diversion)', 8, 0)
+                    ,('Partial Removal (Selective demolition and disposal)', 8, 0)
+                    ,('Protection of existing structures (existing structures in place)', 8, 0)
+                    ,('Protected Species (e.g. endangered or threatened species)', 9, 0)
+                    ,('Invasive Species (e.g. native species that disrupt the local ecosystem)', 9, 0)
+                    ,('Common Species (e.g. native species with no special status)', 9, 1)
+                    ,('Migratory Species (e.g. species that move through the area seasonally)', 9, 0)
+                    ,('Water', 10, 0)
+                    ,('Railway', 10, 0)
+                    ,('Highways', 10, 0)
+                    ,('Process Plants', 10, 0)
+                    ,('Buried pipelines', 10, 0)
+                    ,('Electricity routes', 10, 0)
+                    ,('No', 10, 1)
+                    ,('Critical to complete by completion date', 11, 0)
+                    ,('Seasonal deadline used for completion date', 11, 0)
+                    ,('Desirable completion used for completion date', 11, 0)
+                    ,('Completion date set by programme logic (no constraints)', 11, 1)
+                    ,('Water', 12, 0)
+                    ,('Foul Water', 12, 0)
+                    ,('Power', 12, 0)
+                    ,('Data/Telecommunications', 12, 0)
+                    ;"""
         cur.executemany(insert_gateways, self._gateways)
         cur.execute(insert_estimatetypes)
         cur.execute(insert_partners)
         cur.execute(insert_contracts)
         cur.execute(insert_hubs)
         cur.execute(insert_enquiries)
+        cur.execute(insert_questions)
+        cur.execute(insert_answers)
         conn.commit()
         conn.close()
     
@@ -133,7 +221,7 @@ class SQLiteHandler:
         conn = sqlite3.connect(self.db)
         cur = conn.cursor()
         query1 = f"{self._enquire} WHERE enquiry_id=?"
-        cur.execute(query1, (1,))
+        cur.execute(query1, (id,))
         output = cur.fetchone()
         conn.close()
         return output
