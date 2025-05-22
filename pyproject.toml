@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "estimating-construction"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "U.N. Owen", email = "void@some.where" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/U.N. Owen/estimating-construction#readme"
+Issues = "https://github.com/U.N. Owen/estimating-construction/issues"
+Source = "https://github.com/U.N. Owen/estimating-construction"
+
+[tool.hatch.version]
+path = "src/estimating_construction/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/estimating_construction tests}"
+
+[tool.coverage.run]
+source_pkgs = ["estimating_construction", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/estimating_construction/__about__.py",
+]
+
+[tool.coverage.paths]
+estimating_construction = ["src/estimating_construction", "*/estimating-construction/src/estimating_construction"]
+tests = ["tests", "*/estimating-construction/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
