@@ -1,0 +1,13 @@
+"Unit";"Name";"Type";"Convert";"Formula"
+"None";"Not Measurable";"None";;
+"m";"metres";"Linear";;
+"m2";"metres squared";"Area";;
+"m3";"metres cubed";"Volume";;
+"Nr";"Number";"Count";;
+"kVA";"kilo (1000s of) Volt Amps";"Electrical Power";;
+"ha";"hectares";"Area";"m2";10000
+"l/s";"Litres per second";"Liquid flow rate";;
+"kW";"kilo (1000s of) Watts";"Electrical Power";;
+"mm";"millimetres (1000th of a metre)";"Linear";;
+"Bar";"Bar";"Pressure";;
+"MW";"Megawatt";"Electrical Power";"kW";1000

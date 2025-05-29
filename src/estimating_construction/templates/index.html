@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block tabular %}
+    {% if enqs %}
+        <div id="table"></div>
+        <script>
+            new gridjs.Grid({
+                columns: [
+                    { id: 'project', name: 'Project' },
+                    { id: 'name', name: 'Name' },
+                    { id: 'hub', name: 'Hub' },
+                    { id: 'type', name: 'Type' },
+                    { id: 'gateway', name: 'Gateway', sort: false },
+                    { id: 'partner', name: 'Partner', sort: false },
+                    { id: 'contract', name: 'Contract', sort: false },
+                    { id: 'link', 
+                      name: 'Link', 
+                      sort: false,
+                      formatter: (_, row) => gridjs.html(`<a href='${row.cells[7].data}'>Link</a>`)
+                      },
+                    { id: 'link2', 
+                      name: 'Link', 
+                      sort: false,
+                      formatter: (cell) => gridjs.html(`<a href='${cell}'>Link</a>`)
+                      },
+                ],
+                data: [
+                    {% for enq in enqs %}
+                        {
+                            project: '{{ enq.project }}',
+                            name: '{{ enq.name }}',
+                            hub: '{{ enq.hub }}',
+                            type: '{{ enq.type }}',
+                            gateway: '{{ enq.gateway }}',
+                            partner: '{{ enq.partner }}',
+                            contract: '{{ enq.contract }}',
+                            link: '{{ enq.link }}',
+                            link2: '{{ enq.link }}',
+                        },
+                    {% endfor %}                    
+                ],
+                search: {
+                    selector: (cell, rowIndex, cellIndex) => [0, 1, 4].includes(cellIndex) ? cell : null,
+                },
+                sort: true,
+                pagination: true,
+            }).render(document.getElementById('table'));
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
+
+{% block pageform %}
+    <div class="mid">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div>
+            <h2>User details</h2>
+            <p>
+            {{ form.fullname.label }}: {{ form.fullname(size=32) }}<br>
+            {{ form.company.label }}: {{ form.company(size=32) }}<br>
+            {{ form.email.label }}: {{ form.email }}<br>
+            {{ form.phone.label }}: {{ form.phone }}<br>
+            </p>
+            </div>
+            <div>
+            <h2>Project details</h2>
+            <p>
+            {{ form.sop.label }}: {{ form.sop(size=32) }}
+            {% for error in form.sop.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            {{ form.description.label }}: {{ form.description(size=32) }}
+            {{ form.hub.label }}: {{ form.hub }}
+            </p>
+            </div>
+            <div>
+            <h2>Estimate details</h2>
+            <p>
+            {{ form.type.label }}: {{ form.type }}
+            {{ form.gateway.label }}: {{ form.gateway }}
+            {{ form.partner.label }}: {{ form.partner }}
+            {{ form.contract.label }}: {{ form.contract }}
+            </p>
+            </div>
+            <div>
+            <p>{{ form.submit }}</p>
+            </div>
+    </div>
+    </form>
+{% endblock %}

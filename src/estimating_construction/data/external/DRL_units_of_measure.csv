@@ -1,0 +1,178 @@
+"Id";"Category";"Label";"Primary Yardstick";"Secondary Yardstick";"Primary Comment";"Secondary Comment";"Primary UoM";"Secondary UoM"
+"http://environment.data.gov.uk/asset-management/id/drl/FileNamingAttributes";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"*File Naming Attributes";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/FileReaderFormTemplates";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"*File Reader Form Templates";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/InformationPurposes";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"*Information Purposes";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/ReportSchemas";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"*Report Schemas";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/AmenityBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Amenity Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/AnimalTrap";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Animal Trap";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/AssetManagement";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Asset Management";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/AutomationControls";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Automation Controls";"kVA";"Nr";;;"kVA";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/BarrierBeach";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Barrier Beach";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Beach";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Beach";"ha";"m3";;;"ha";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Beacon";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Beacon";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/BiodiversityAndEnvironmentalConservation";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Biodiversity and Environmental Conservation";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/BioretentionArea";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Bioretention Area";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/BoatLanding";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Boat Landing";"m2";"Not Measurable";;;"m2";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/Boathouse";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Boathouse";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Boatroller";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Boatroller";"m2";"Nr";;;"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/Borehole";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Borehole";"m (Borehole depth)";"m (Borehole diameter)";"Borehole depth";"Borehole diameter";"m";"m"
+"http://environment.data.gov.uk/asset-management/id/drl/Breakwater";"http://environment.data.gov.uk/asset-management/id/drl/BeachStructure";"Breakwater";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Bridge";"http://environment.data.gov.uk/asset-management/id/drl/ChannelCrossings";"Bridge";"m2 (Area of the Bridge)";"m (Length of the Bridge)";"Area of the Bridge";"Length of the Bridge";"m2";"m"
+"http://environment.data.gov.uk/asset-management/id/drl/BridgeAbutment";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Bridge Abutment";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/BufferStrip";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Buffer Strip";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Buoy";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Buoy";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/CctvCameraSystem";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"CCTV Camera System";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/Cableway";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Cableway";"m";;;;"m";
+"http://environment.data.gov.uk/asset-management/id/drl/CampingArea";"http://environment.data.gov.uk/asset-management/id/drl/Amenities";"Camping Area";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/CanoePass";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Canoe Pass";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/CanoePortagePoint";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Canoe Portage Point";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/CarParkOrHardstanding";"http://environment.data.gov.uk/asset-management/id/drl/Amenities";"Car Park or Hardstanding";"m2";"m (Length)";;"Length";"m2";"m"
+"http://environment.data.gov.uk/asset-management/id/drl/CentralPier";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Central Pier";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/ChannelsAndRills";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Channels and Rills";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Cliff";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Cliff";"m3 (earthworks)";"m2 (for stability measures)";"earthworks";"for stability measures";"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/CommercialFinancialProducts";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Commercial Financial Products";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/CommissioningAndPerformanceEvaluationGsl";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Commissioning and Performance Evaluation (GSL)";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/CommunicationsAndEngagement";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Communications and Engagement";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/ComplexBeachStructure";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Complex Beach Structure";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/ComplexCulvert";"http://environment.data.gov.uk/asset-management/id/drl/Channel";"Complex Culvert";"m (length of the channel)";"m3";"length of the channel";;"m";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/ComplexDefence";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Complex Defence";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/ComplexStructure";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Complex Structure";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/ControlBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Control Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/ControlGate";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Control Gate";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/ControlStructure";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Control Structure";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/CrossDrain";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Cross Drain";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/DebrisBoom";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Debris Boom";"m";"Nr";;;"m";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/DebrisScreen";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Debris Screen";"m2";"l/s (Flow)";;"Flow";"m2";"l/s"
+"http://environment.data.gov.uk/asset-management/id/drl/DemountableDefence";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Demountable Defence";"m2";"Nr (number of sections)";;"number of sections";"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/Design";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Design";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/DetentionBasin";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Detention Basin";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Dock";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Dock";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Dolphin";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Dolphin";"m2";"Nr";;;"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/DrawOffTower";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Draw Off Tower";"m (Tower Diameter)";"m (Tower Height)";"Tower Diameter";"Tower Height";"m";"m"
+"http://environment.data.gov.uk/asset-management/id/drl/Dunes";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Dunes";"m3 (earthworks)";"m2 (for stability measures)";"earthworks";"for stability measures";"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/EconomicViability";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Economic Viability";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/Embankment";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Embankment";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/EngineAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Engine Assembly";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/EngineeredHighGround";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Engineered High Ground";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/Environmental";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Environmental";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/ErosionProtection";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Erosion Protection";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/FilterStrip";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Filter Strip";"ha";"m2";;;"ha";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/FishCage";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Fish Cage";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/FishFarm";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Fish Farm";"ha";;;;"ha";
+"http://environment.data.gov.uk/asset-management/id/drl/FishHatchery";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Fish Hatchery";"ha";;;;"ha";
+"http://environment.data.gov.uk/asset-management/id/drl/FishPass";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Fish Pass";"m (Length of the pass channel)";"Nr (Number of pools)";"Length of the pass channel";"Number of pools";"m";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/FishRefuge";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Fish Refuge";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/FishOrEelBarrier";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Fish or Eel Barrier";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/FishingPlatform";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Fishing Platform";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/FloodAlleviationScheme";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Flood Alleviation Scheme";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/FloodGate";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Flood Gate";"m";"m2";;;"m";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/FloodWarningSystem";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Flood Warning System";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/Ford";"http://environment.data.gov.uk/asset-management/id/drl/ChannelCrossings";"Ford";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Garage";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Garage";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/GaugeBoard";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Gauge Board";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/GaugingStationBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Gauging Station Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Generator";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Generator";"kVA";"KW";;;"kVA";"KW"
+"http://environment.data.gov.uk/asset-management/id/drl/GreenRoof";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Green Roof";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Groyne";"http://environment.data.gov.uk/asset-management/id/drl/BeachStructure";"Groyne";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/HangingWall";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Hanging Wall";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/Harbour";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Harbour";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/HealthAndSafety";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Health and Safety";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/HighVoltageElectricalSystemAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"High Voltage Electrical System Assembly";"kVA";"KW";;;"kVA";"KW"
+"http://environment.data.gov.uk/asset-management/id/drl/HydraulicSystemAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Hydraulic System Assembly";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/InChannelStoplogs";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"In Channel Stoplogs";"m2";"Nr";;;"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/InfiltrationBasin";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Infiltration Basin";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/InformationBoard";"http://environment.data.gov.uk/asset-management/id/drl/Amenities";"Information Board";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/InspectionChamber";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Inspection Chamber";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Instrumentation";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Instrumentation";"Nr, m2, l/s, bar (pressure), kW (power)";;;;"Nr, m2, l/s, bar (pressure), kW (power)";
+"http://environment.data.gov.uk/asset-management/id/drl/Jetty";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Jetty";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/LabBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Lab Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Lock";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Lock";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/LockIsland";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Lock Island";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/LowVoltageElectricalSystemAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Low Voltage Electrical System Assembly";"kVA";"KW";;;"kVA";"KW"
+"http://environment.data.gov.uk/asset-management/id/drl/MaintenanceBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Maintenance Building";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/MineAdit";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Mine Adit";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/MineShaft";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Mine Shaft";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/Modelling";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Modelling";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/MonitoringBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Monitoring Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/MonitoringStation";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Monitoring Station";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Mooring";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Mooring";"m";;;;"m";
+"http://environment.data.gov.uk/asset-management/id/drl/MotorControlCentreControls";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Motor Control Centre Controls";"kVA";"Nr of Starters";;"Number of Starters";"kVA";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/Mudflats";"http://environment.data.gov.uk/asset-management/id/drl/Land";"Mudflats";"ha";"m2";;;"ha";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/NaturalHighGround";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Natural High Ground";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/NaturalSpring0";"http://environment.data.gov.uk/asset-management/id/drl/Channel";"Natural Spring";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/NavigationBoom";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Navigation Boom";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/NavigationComplex";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Navigation Complex";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/NavigationSignage";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Navigation Signage";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/OfficeBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Office Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/OpenChannel";"http://environment.data.gov.uk/asset-management/id/drl/Channel";"Open Channel";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/OrificeFlowControl";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Orifice Flow Control";"l/s (maximum flow)";"mm (diameter)";"maximum flow";"diameter";"l/s";"mm"
+"http://environment.data.gov.uk/asset-management/id/drl/Outfall";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Outfall";"mm (diameter)";"m3";"diameter";;"mm";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/PsraTreeSite";"http://environment.data.gov.uk/asset-management/id/drl/PublicSafety";"PSRA Tree Site";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/Pathway";"http://environment.data.gov.uk/asset-management/id/drl/Amenities";"Pathway";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/PermissionsOwnershipAndResponsibility";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Permissions, ownership and responsibility";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/Pier";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Pier";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Piezometer";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Piezometer";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/Planning";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Planning";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/PollutionContainmentPond";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Pollution Containment Pond";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/PollutionContainmentTank";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Pollution Containment Tank";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/PowerTransmission";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Power Transmission";"kVA";"KW";;;"kVA";"KW"
+"http://environment.data.gov.uk/asset-management/id/drl/PrecipitationCompound";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Precipitation Compound";"m2";"Nr";;;"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/PressureSystemAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Pressure System Assembly";"Bar";"Nr";;;"Bar";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/ProcurementProducts";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Procurement Products";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/ProjectManagement";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Project Management";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/Promenade";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Promenade";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/PublicSafetyControlSystem";"http://environment.data.gov.uk/asset-management/id/drl/PublicSafety";"Public Safety Control System";"Nr";"m2";;;"Nr";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/PumpAssembly";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Pump Assembly";"kW";;;;"kW";
+"http://environment.data.gov.uk/asset-management/id/drl/PumpHouse";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Pump House";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/PumpingStation";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Pumping Station";"l/s (Design Flow)";"kW";"Design Flow";;"l/s";"kW"
+"http://environment.data.gov.uk/asset-management/id/drl/Quay";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Quay";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/RainwaterHarvestingSystem";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Rainwater Harvesting System";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/Ramp";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Ramp";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/RecreationalComplex";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Recreational Complex";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Reservoir";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Reservoir";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/ResidentialBuilding";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Residential Building";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/SaltMarsh";"http://environment.data.gov.uk/asset-management/id/drl/Land";"Salt Marsh";"ha";"m2";;;"ha";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/SampleOrSurveyPoint";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Sample or Survey Point";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/SandBaggingEquipment";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Sand Bagging Equipment";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/SandTrap";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Sand Trap";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/Scrape";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Scrape";"ha";"m2";;;"ha";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/SecurityScreen";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Security Screen";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/SedimentationPond";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Sedimentation Pond";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/Shelter";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Shelter";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Signal";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Signal";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/SimpleCulvert";"http://environment.data.gov.uk/asset-management/id/drl/Channel";"Simple Culvert";"m (length of the channel)";"m3";"length of the channel";;"m";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/SiteAndAssetConditions";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Site and Asset Conditions";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/SiteBasedWorks";"http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables";"Site-based works";"Not Measurable";"Not Measurable";;;"None";"None"
+"http://environment.data.gov.uk/asset-management/id/drl/Slipway";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Slipway";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/SoilMoistureTube";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Soil Moisture Tube";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/SolarFarm";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Solar Farm";"MW (Megawatt)";"ha";"Megawatt";;"MW";"ha"
+"http://environment.data.gov.uk/asset-management/id/drl/Spillway";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Spillway";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/Steps";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Steps";"m2";"Nr";;;"m2";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/StillingBasin";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Stilling Basin";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/StillingWell";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Stilling Well";"mm (diameter)";"m3";"diameter";;"mm";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/StorageLocation";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Storage Location";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterBarrier";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Surface Water Barrier";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterChannel";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Surface Water Channel";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterPipedBuriedSystem";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Surface Water Piped/Buried System";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterTank";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Surface Water Tank";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Swale";"http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement";"Swale";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Telecommunications";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Telecommunications";"m (length)";;"length";;"m";
+"http://environment.data.gov.uk/asset-management/id/drl/TelemetrySystem";"http://environment.data.gov.uk/asset-management/id/drl/Instruments";"Telemetry System";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/TidalBarrier";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Tidal Barrier";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/UtilityServicesCrossing";"http://environment.data.gov.uk/asset-management/id/drl/ChannelCrossings";"Utility Services Crossing";"m (length)";;"length";;"m";
+"http://environment.data.gov.uk/asset-management/id/drl/VehicleAccessRoad";"http://environment.data.gov.uk/asset-management/id/drl/Amenities";"Vehicle Access Road";"m2";;;;"m2";
+"http://environment.data.gov.uk/asset-management/id/drl/VisitorCentre";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Visitor Centre";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/VortexFlowControl";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Vortex Flow Control";"l/s (maximum flow)";"Nr";"maximum flow";;"l/s";"Nr"
+"http://environment.data.gov.uk/asset-management/id/drl/Wall";"http://environment.data.gov.uk/asset-management/id/drl/Defence";"Wall";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/WarningFlag";"http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation";"Warning Flag";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/WastewaterSystem";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Wastewater System";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/WaterBaffles";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Water Baffles";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/WaterDistributionPipeline";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Water Distribution Pipeline";"mm (diameter)";;"diameter";;"mm";
+"http://environment.data.gov.uk/asset-management/id/drl/WaterLevelAndFlowMonitoringComplex";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Water Level and Flow Monitoring Complex";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/WaterStorageArea";"http://environment.data.gov.uk/asset-management/id/drl/Land";"Water Storage Area";"ha";"m2";;;"ha";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/WaterSupplySystem";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Water Supply System";;;;;;
+"http://environment.data.gov.uk/asset-management/id/drl/WaterTransferScheme";"http://environment.data.gov.uk/asset-management/id/drl/AssetComplex";"Water Transfer Scheme";"Nr";;;;"Nr";
+"http://environment.data.gov.uk/asset-management/id/drl/Watermill";"http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds";"Watermill";"m2";"m3";;;"m2";"m3"
+"http://environment.data.gov.uk/asset-management/id/drl/Weir";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Weir";"m3";"m2";;;"m3";"m2"
+"http://environment.data.gov.uk/asset-management/id/drl/Well";"http://environment.data.gov.uk/asset-management/id/drl/Structure";"Well";"m3";;;;"m3";
+"http://environment.data.gov.uk/asset-management/id/drl/WindPowerGenerator";"http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical";"Wind Power Generator";"kW";"kVA";;;"kW";"kVA"

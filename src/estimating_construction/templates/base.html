@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% if title %}
+      <title>Estimating Manager: {{ title }}</title>
+      {% else %}
+      <title>Construction Estimating Enquiry Manager</title>
+      {% endif %}
+      <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+    </head>
+    <body>
+        <div class="nav">Enquiry Manager: <a href="{{ url_for('index') }}">Home</a></div>
+        {% block locallinks %}{% endblock %}
+        <hr>
+        <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+        <script 
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
+            crossorigin="anonymous"></script>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block tabular %}{% endblock %}
+        {% block content %}{% endblock %}
+        {% block pageform %}{% endblock %}
+    </body>
+</html>

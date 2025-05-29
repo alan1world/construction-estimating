@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block tabular %}
+    <div class="mid bod">
+    <h1>Enquiry: {{ enq.enq }}</h1>
+    </div>
+    <div>
+    <table class="mid">
+        <tr class="hed">
+            <td>Project</td>
+            <td>Name</td>
+            <td>Hub</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ enq.project }}</td>
+            <td>{{ enq.name }}</td>
+            <td>{{ enq.hub }}</td>
+            <td></td>
+        </tr>
+        <tr class="hed">
+            <td>Type</td>
+            <td>Gateway</td>
+            <td>Partner</td>
+            <td>Contract</td>
+        </tr>
+        <tr>
+            <td>{{ enq.type }}</td>
+            <td>{{ enq.gateway }}</td>
+            <td>{{ enq.partner }}</td>
+            <td>{{ enq.contract }}</td>
+        </tr>
+    </table>
+    <hr>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div>
+    <h2>Option Tables</h2>
+    </div>
+{% endblock %}
+
+{% block pageform %}
+{% endblock %}

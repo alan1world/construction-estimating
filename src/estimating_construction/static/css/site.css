@@ -1,0 +1,22 @@
+table.bod {
+    border: 1px solid;
+}
+
+.mid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+tr.hed {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.bre .breathe {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
