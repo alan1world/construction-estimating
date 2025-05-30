@@ -2,7 +2,12 @@
 # import estimating_construction.data.samples as pds
 # import estimating_construction.structures.contracts as psc
 
+import json
+
+from pathlib import Path
+
 from flask import render_template, flash, redirect, url_for
+# from flask import send_from_directory
 
 from estimating_construction import app
 from estimating_construction.forms import NewFullEnquiryForm
@@ -67,6 +72,31 @@ def enquiries(id):
         return redirect(url_for('index'))
     return render_template('enquiries.html', title=f"Enquiry Form {id}", enq=enq)
 
+@app.route('/drl/', methods=['GET',])
+@app.route('/drl/index', methods=['GET',])  # GET, POST, PUT, +?UPDATE?
+def drl():
+    root = "estimating_construction"
+    # file_categories = f"{root}/{url_for('static', filename='external/categories_rev72-20250324.json')}"
+    file_assets = f"{root}/{url_for('static', filename='external/asset-types_rev72-20250324.json')}"
+    # file_attributes = "attributes_rev72-20250324.json"
+    # file_elements = "elements_rev72-20250324.json"
+    # self.file_picklists = "picklists_rev72-20250324.json"
+    # with Path(file_categories).open() as f:
+    # # with open("estimating_construction/categories.csv") as f:
+    #         categories = json.load(f)
+    assets=[]
+    with Path(file_assets).open() as f:
+            assets = json.load(f)
+            # for item in json.load(f):
+            #     asset = {
+            #         "label": item["id"].split("/")[-1],
+            #         "description": item["description"],
+            #         "category": item["category"].split("/")[-1],
+            #     }
+            #     assets.append(asset)
+            # print(assets[0])
+    # return redirect(url_for('index'))
+    return render_template('drl.html', assets=assets)
 # @app.route('/enquiries/<int:id>/options/<int:opt>', methods=['GET'])
 # def options(id, opt):
 #     enq = enqs[id]

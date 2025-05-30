@@ -1,0 +1,16 @@
+Id,Label,Description
+http://environment.data.gov.uk/asset-management/id/drl/AidsToNavigation,Aids to Navigation ,Assets that are used to aid navigation in the marine and fluvial environment.
+http://environment.data.gov.uk/asset-management/id/drl/Amenities,Amenities,Assets that contribute to the accessibility or usability of a location.
+http://environment.data.gov.uk/asset-management/id/drl/AssetComplex,Asset Complex,A grouping together of individual assets that can be considered as parts of a single site or complex with a high level purpose.
+http://environment.data.gov.uk/asset-management/id/drl/BeachStructure,Beach Structure,Assets used to protect the coast from erosion.
+http://environment.data.gov.uk/asset-management/id/drl/BuildingsAndCompounds,Buildings and Compounds,"Assets that are used to provide shelter for equipment, storage or personnel."
+http://environment.data.gov.uk/asset-management/id/drl/Channel,Channel,Assets that convey water.
+http://environment.data.gov.uk/asset-management/id/drl/ChannelCrossings,Channel Crossings,Assets that allow access across a channel.
+http://environment.data.gov.uk/asset-management/id/drl/Defence,Defence,Asset that provide flood defence or coastal protection functions. These include both man-made and natural defences. Natural defences may include man-made elements to make them more effective or protect them from erosion.
+http://environment.data.gov.uk/asset-management/id/drl/InformationDeliverables,Information Deliverables,"Specific Information Deliverables scheduled in each project Information Delivery Plan (IDP) for each required delivery stage.<br>*File Naming Attributes and *Information Purposes  are not specific information deliverables but list the allowable values for different parts of the file names, and the purposes for which the information may be used.<br>Similarly, *File Reader Form Templates and *Report Schemas provide definitions of column requirements to be used in deliverable files, and a schema definition of file metadata."
+http://environment.data.gov.uk/asset-management/id/drl/Instruments,Instruments,"Assets used to measure, monitor and communicate environmental or operational parameters."
+http://environment.data.gov.uk/asset-management/id/drl/Land,Land,Areas of land that are involved in water management.
+http://environment.data.gov.uk/asset-management/id/drl/MechanicalAndElectrical,Mechanical and Electrical,"Specialist mechanical, electrical, control and automation assets."
+http://environment.data.gov.uk/asset-management/id/drl/PublicSafety,Public Safety,Environment Agency managed assets that are used in the protection of public safety.
+http://environment.data.gov.uk/asset-management/id/drl/Structure,Structure,"Assets used to enable, restrict or affect the movement of water, people, fish, animals or materials."
+http://environment.data.gov.uk/asset-management/id/drl/SurfaceWaterManagement,Surface Water Management,Assets used to manage surface water.

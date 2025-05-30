@@ -363,13 +363,15 @@ class DRL:
     def load_elements(self) -> None:
         elements = self.load_json(self.file_assets)
 
-# SQLiteHandler().reset()
-db = SQLiteHandler()
-db.reset()
-db.background_data()
-print(db.enquiries)
-print(db.enquiry(1))
 
-db = DRL()
-db.reset()
+if __name__ == "__main":
+  # SQLiteHandler().reset()
+  db = SQLiteHandler()
+  db.reset()
+  db.background_data()
+  print(db.enquiries)
+  print(db.enquiry(1))
+
+  db = DRL()
+  db.reset()
 

@@ -49,6 +49,13 @@
     {% endif %}
 {% endblock %}
 
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
+
 {% block pageform %}
     <div class="mid">
         <form action="" method="post" novalidate>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block tabular %}
+    <div class="mid">
+    <h1>Data Requirements Library</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if assets %}
+    <table class="mid">
+        <tr>
+            <th>Asset Type</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+        {% for asset in assets %}
+        <tr>
+            <td>{{ asset.label }}</td>
+            <td>{{ asset.category.split('/')[-1] }}</td>
+            <td>{{ asset.description|safe }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}
+
+{% block pageform %}
+{% endblock %}
