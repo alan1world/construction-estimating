@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       {% if title %}
       <title>Estimating Manager: {{ title }}</title>
       {% else %}
@@ -12,6 +12,28 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
     </head>
     <body>
+        <div class="container">
+            <header class="header">
+                {% if title %}
+                    <h1>{{ page_title }}</h1>
+                {% else %}
+                    <h1>Overview</h1>
+                {% endif %}
+            </header>
+
+        <nav class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation"><span id="sidebarIcon">&#9776;</span></button>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Estimates</a></li>
+                <li><a href="#">References</a></li>
+                <li><a href="{{ url_for('drl') }}">Data Requirements Library (DRL)</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
         <div class="nav">Enquiry Manager: <a href="{{ url_for('index') }}">Home</a></div>
         <div class="nav">Enquiry Manager: <a href="{{ url_for('drl') }}">DRL</a></div>
         {% block locallinks %}{% endblock %}
