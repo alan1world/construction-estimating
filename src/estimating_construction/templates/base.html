@@ -14,46 +14,97 @@
     <body>
         <div class="container">
             <header class="header">
-                {% if title %}
+                {% if page_title %}
                     <h1>{{ page_title }}</h1>
                 {% else %}
                     <h1>Overview</h1>
                 {% endif %}
             </header>
 
-        <nav class="sidebar" id="sidebar">
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation"><span id="sidebarIcon">&#9776;</span></button>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Estimates</a></li>
-                <li><a href="#">References</a></li>
-                <li><a href="{{ url_for('drl') }}">Data Requirements Library (DRL)</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="sidebar" id="sidebar">
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation"><span id="sidebarIcon">&#9776;</span></button>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Estimates</a></li>
+                    <li><a href="#">References</a></li>
+                    <li><a href="{{ url_for('drl') }}">Data Requirements Library (DRL)</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
         
-        <div class="nav">Enquiry Manager: <a href="{{ url_for('index') }}">Home</a></div>
-        <div class="nav">Enquiry Manager: <a href="{{ url_for('drl') }}">DRL</a></div>
-        {% block locallinks %}{% endblock %}
-        <hr>
-        <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-        <script 
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
-            crossorigin="anonymous"></script>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        {% block tabular %}{% endblock %}
-        {% block content %}{% endblock %}
-        {% block pageform %}{% endblock %}
+            {% block locallinks %}{% endblock %}
+            <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+            <script 
+                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
+                crossorigin="anonymous"></script>
+            
+            <main class="content">
+                <div class="content-flex">
+                    <section class="main-content">
+                        
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <br>
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <h2>Main Content</h2>
+                        <p>This is the main content area of the page.</p>
+                        <br>
+                        {% block tabular %}{% endblock %}
+                        {% block content %}{% endblock %}
+                        {% block pageform %}{% endblock %}
+                    
+                    </section>
+                    
+                    <aside class="page-nav">
+                        <h3>Page Navigation</h3>
+                        <ul>
+                            {% block internallinks %}{% endblock %}
+                            <li><a href="#section1">Section 1</a></li>
+                            <li><a href="#section2">Section 2</a></li>
+                            <li><a href="#section3">Section 3</a></li>
+                        </ul>
+                    </aside>
+                
+                </div>
+            </main>
+
+            <footer class="footer">
+                <p>&copy; 2024 Your Website. All rights reserved.</p>
+            </footer>
+        </div>
+
+        <script>
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('sidebarToggle');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+            const container = document.querySelector('.container');
+            let collapsed = false;
+            function setGridColumns(collapsed) {
+                if (collapsed) {
+                    container.style.gridTemplateColumns = '5% 1fr 1fr';
+                    sidebarIcon.innerHTML = '&#9654;'; // right arrow
+                } else {
+                    container.style.gridTemplateColumns = '20% 1fr 1fr';
+                    sidebarIcon.innerHTML = '&#9776;'; // hamburger
+                }
+            }
+            toggleBtn.addEventListener('click', () => {
+                collapsed = !collapsed;
+                sidebar.classList.toggle('collapsed', collapsed);
+                setGridColumns(collapsed);
+            });
+            // Initialize state
+            setGridColumns(false);
+        </script>
     </body>
 </html>
