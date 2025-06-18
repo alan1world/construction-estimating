@@ -55,10 +55,8 @@
                                 <br>
                             {% endif %}
                         {% endwith %}
-                        
-                        <h2>Main Content</h2>
-                        <p>This is the main content area of the page.</p>
-                        <br>
+
+                        {% block topblock %}{% endblock %}
                         {% block tabular %}{% endblock %}
                         {% block content %}{% endblock %}
                         {% block pageform %}{% endblock %}

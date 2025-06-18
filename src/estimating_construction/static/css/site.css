@@ -42,6 +42,7 @@ body {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     transition: grid-template-columns 0.3s;
+    overflow: hidden; /* Prevent container from scrolling */
 }
 
 .header {
@@ -119,6 +120,8 @@ body {
     grid-area: content;
     padding: 2rem;
     background-color: #f4e4bc;
+    overflow-y: auto; /* Make content section scrollable */
+    max-height: calc(100vh - 120px); /* Adjust based on header and footer height */
 }
 
 .content-flex {
