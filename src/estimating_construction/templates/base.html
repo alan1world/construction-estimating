@@ -17,7 +17,7 @@
                 {% if page_title %}
                     <h1>{{ page_title }}</h1>
                 {% else %}
-                    <h1>Overview</h1>
+                    <h3>Overview</h3>
                 {% endif %}
             </header>
 
@@ -25,10 +25,10 @@
                 <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation"><span id="sidebarIcon">&#9776;</span></button>
                 <ul>
                     <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="#">Services</a></li>
                     <li><a href="#">Estimates</a></li>
-                    <li><a href="#">References</a></li>
                     <li><a href="{{ url_for('drl') }}">Data Requirements Library (DRL)</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">References</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
