@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block tabular %}
+    {% if enqs %}
         <div id="table"></div>
         <script>
             new gridjs.Grid({
@@ -21,9 +22,7 @@
                     { id: 'link', 
                       name: 'Link', 
                       sort: false,
-                      formatter: (_, row) => gridjs.html(
-                        `<a href='${row.cells[7].data}'><button type="button">Link</button></a>`
-                        )
+                      formatter: (_, row) => gridjs.html(`<a href='${row.cells[7].data}'>Link</a>`)
                       },
                     { id: 'link2', 
                       name: 'Link', 
@@ -32,19 +31,19 @@
                       },
                 ],
                 data: [
-                        {% for enq in enqs %}
-                            {
-                                project: '{{ enq.project }}',
-                                name: '{{ enq.name }}',
-                                hub: '{{ enq.hub }}',
-                                type: '{{ enq.type }}',
-                                gateway: '{{ enq.gateway }}',
-                                partner: '{{ enq.partner }}',
-                                contract: '{{ enq.contract }}',
-                                link: '{{ enq.link }}',
-                                link2: '{{ enq.link }}',
-                            },
-                        {% endfor %}               
+                    {% for enq in enqs %}
+                        {
+                            project: '{{ enq.project }}',
+                            name: '{{ enq.name }}',
+                            hub: '{{ enq.hub }}',
+                            type: '{{ enq.type }}',
+                            gateway: '{{ enq.gateway }}',
+                            partner: '{{ enq.partner }}',
+                            contract: '{{ enq.contract }}',
+                            link: '{{ enq.link }}',
+                            link2: '{{ enq.link }}',
+                        },
+                    {% endfor %}                    
                 ],
                 search: {
                     selector: (cell, rowIndex, cellIndex) => [0, 1, 4].includes(cellIndex) ? cell : null,
@@ -53,6 +52,7 @@
                 pagination: true,
             }).render(document.getElementById('table'));
         </script>
+    {% endif %}
 {% endblock %}
 
 {% block pageform %}

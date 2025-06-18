@@ -28,7 +28,8 @@ tr.hed {
 
 body {
     background-color: #f4e4bc; /* Old book page color */
-    font-family: 'Georgia', serif;
+    /* font-family: 'Georgia', serif; */
+    font-family: 'Optima', 'Futura', sans-serif;
     min-height: 100vh;
 }
 
