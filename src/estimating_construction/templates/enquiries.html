@@ -39,7 +39,150 @@
     <div>
     <h2>Option Tables</h2>
     </div>
+    <hr>
 {% endblock %}
 
 {% block pageform %}
+    <form id="form-drivers" action="" method="post" novalidate></form>
+    <form id="form-drivers-4" action="" method="post" novalidate></form>
+    
+    <h2>Project Drivers</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Question</td>
+                <td>Answer</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1. What is the level of access to the site?</td>
+                <td>Answer</td>
+                <td>Unconstrained access</td>
+            </tr>
+            <tr>
+                <td>2. Are there any official designations for the site?</td>
+                <td>Answer</td>
+                <td>No designation</td>
+            </tr>
+            <tr>
+                <td>3. What types of site compounds do you have?</td>
+                <td>Answer</td>
+                <td>No compound (welfare only)</td>
+            </tr>
+            <tr>
+                <td>4. Is the project in a remote location with difficult access to resources?</td>
+                <td>
+                    <input 
+                        type="checkbox" 
+                        form="form-drivers-4" 
+                        hx-target="#fd4d" 
+                        hx-swap="textContent" 
+                        hx-trigger="change" 
+                    >
+                </td>
+                <td id="#fd4d">No (Easily accessible with no major logistical issues)</td>
+            </tr>
+            <tr>
+                <td>5. How is the project classified?</td>
+                <td>Answer</td>
+                <td>Standard Project (£1m-£50m)</td>
+            </tr>
+            <tr>
+                <td>6. Is there any hazardous waste present on the site?</td>
+                <td>
+                    <input 
+                        type="checkbox" 
+                        hx-get="/fd6dr"
+                        hx-trigger="input" 
+                        hx-swap="innerHTML" 
+                        hx-target="#fd6d" 
+                    >
+                </td>
+                <td id="#fd6d">No</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>7. How would you describe the ground conditions on the site?</p>
+    <p>8. What is required for the existing non-EA structures at the site?</p>
+    <p>9. What type of species are present/anticipated on the site?</p>
+    <p>10. Is the project adversely influenced by any of the following?</p>
+    <p>11. Is the project completion milestone constrained due to an external factor?</p>
+    <p>12. What utilities are not available to connect for the construction works?</p>
+
+    <h2>Current Answers</h2>
+    <p>
+        1. What is the level of access to the site?<br>
+            Physically constrained access
+            Unconstrained access
+            Time limited access (e.g. certain hours accessible)
+            Third party access (e.g. access through land owned by others, access rights needed)
+        2. Are there any official designations for the site?
+            Area of outstanding natural beauty (AONB)
+            National Park
+            SSSIS, SACs, SPAs, Ramsar wetlands
+            Marine Conservation Zones
+            Conservation Zones
+            TPO (Tree Protection Orders)
+            No designation
+        3. What types of site compounds do you have?
+            Standard/main compound
+            Satellite compound
+            No compound (welfare only)
+            Highways
+        4. Is the project in a remote location with difficult access to resources?
+            Yes (Significant challenges in accessing materials and labour)
+            No (Easily accessible with no major logistical issues)
+        5. How is the project classified?
+            Standard Project (£1m-£50m)
+            Major Project (£50m+)
+            Minor Project (below £1m)
+        6. Is there any hazardous waste present on the site?
+            Yes
+            No
+        7. How would you describe the ground conditions on the site?
+            No issues
+            Minor issues
+            Severe issues
+        8. What is required for the existing non-EA structures at the site?
+            No requirement
+            Removal (Complete demolition and disposal)
+            Relocation or Diversion (Moving structures to a new location, service or road diversion)
+            Partial Removal (Selective demolition and disposal)
+            Protection of existing structures (existing structures in place)
+        9. What type of species are present/anticipated on the site?
+            Protected Species (e.g. endangered or threatened species)
+            Invasive Species (e.g. species that disrupt local ecosystems)
+            Common Species (e.g. native species with no special status)
+            Migratory Species (e.g. species that move through the area seasonally)
+        10. Is the project adversely influenced by any of the following?
+            Water
+            Railway
+            Highways
+            Process Plants
+            Buries pipelines
+            Electricity routes
+            No
+        11. Is the project completion milestone constrained due to an external factor?
+            Critical to complete by completion date
+            Seasonal deadline used for completion date
+            Desirable completion used for completion date
+            Completion date set by programme logic (no constraints)
+        12. What utilities are not available to connect for the construction works?
+            Water
+            Foul Water
+            Power
+            Data/Telecommunications
+
+        <td><label class="switch">
+                <input type="checkbox" form="form-drivers">
+                <span class="slider round"></span>
+            </label></td>
+{% endblock %}
+
+{% block internallinks %}
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#options">Asset Option Tables</a></li>
+    <li><a href="#costdrivers">Cost Drivers</a></li>
 {% endblock %}

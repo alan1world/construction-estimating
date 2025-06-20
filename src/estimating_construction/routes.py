@@ -3,6 +3,7 @@
 # import estimating_construction.structures.contracts as psc
 
 import json
+import itertools
 
 from pathlib import Path
 
@@ -97,6 +98,13 @@ def drl():
             # print(assets[0])
     # return redirect(url_for('index'))
     return render_template('drl.html', assets=assets)
+
+@app.route('/fd6dr/', methods=['GET',])
+@app.route('/fd6dr/index', methods=['GET',])  # GET, POST, PUT, +?UPDATE?
+def fd6dr():
+    for item in itertools.cycle(["Yes", "No"]):
+        yield item
+
 # @app.route('/enquiries/<int:id>/options/<int:opt>', methods=['GET'])
 # def options(id, opt):
 #     enq = enqs[id]

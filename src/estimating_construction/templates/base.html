@@ -26,9 +26,12 @@
                 <ul>
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="#">Estimates</a></li>
+                    <li><a href="#">Projects</a></li>
                     <li><a href="{{ url_for('drl') }}">Data Requirements Library (DRL)</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">References</a></li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Companies</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -36,6 +39,7 @@
         
             {% block locallinks %}{% endblock %}
             <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+            <script src="/static/js/htmx.js"></script>
             <script 
                 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
                 integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
