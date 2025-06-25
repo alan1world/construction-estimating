@@ -12,7 +12,10 @@
             new gridjs.Grid({
                 columns: [
                     { id: 'project', name: 'Project' },
-                    { id: 'name', name: 'Name' },
+                    { id: 'name', 
+                      name: 'Name', 
+                      formatter: (cell) => gridjs.html(`${cell}`) 
+                      },
                     { id: 'hub', name: 'Hub' },
                     { id: 'type', name: 'Type' },
                     { id: 'gateway', name: 'Gateway', sort: false },
@@ -50,7 +53,7 @@
                     selector: (cell, rowIndex, cellIndex) => [0, 1, 4].includes(cellIndex) ? cell : null,
                 },
                 sort: true,
-                pagination: true,
+                pagination: {limit: 5},
             }).render(document.getElementById('table'));
         </script>
 {% endblock %}
@@ -71,20 +74,20 @@
             <div>
             <h2>Project details</h2>
             <p>
-            {{ form.sop.label }}: {{ form.sop(size=32) }}
+            {{ form.sop.label }}: {{ form.sop(size=32) }}<br>
             {% for error in form.sop.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            <span style="color: red;">[{{ error }}]</span><br>
             {% endfor %}
-            {{ form.description.label }}: {{ form.description(size=32) }}
-            {{ form.hub.label }}: {{ form.hub }}
+            {{ form.description.label }}: {{ form.description(size=32) }}<br>
+            {{ form.hub.label }}: {{ form.hub }}<br>
             </p>
             </div>
             <div>
             <h2>Estimate details</h2>
             <p>
-            {{ form.type.label }}: {{ form.type }}
-            {{ form.gateway.label }}: {{ form.gateway }}
-            {{ form.partner.label }}: {{ form.partner }}
+            {{ form.type.label }}: {{ form.type }}<br>
+            {{ form.gateway.label }}: {{ form.gateway }}<br>
+            {{ form.partner.label }}: {{ form.partner }}<br>
             {{ form.contract.label }}: {{ form.contract }}
             </p>
             </div>

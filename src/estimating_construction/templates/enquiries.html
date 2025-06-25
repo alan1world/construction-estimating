@@ -31,86 +31,245 @@
             <td>{{ enq.contract }}</td>
         </tr>
     </table>
+    <br>
     <hr>
     </div>
 {% endblock %}
 
 {% block content %}
-    <div>
+    <!--- <div>
     <h2>Option Tables</h2>
     </div>
+    <br>
     <hr>
+    <br> --->
 {% endblock %}
 
 {% block pageform %}
     <form id="form-drivers" action="" method="post" novalidate></form>
     <form id="form-drivers-4" action="" method="post" novalidate></form>
-    
-    <h2>Project Drivers</h2>
-    <table>
-        <thead>
-            <tr>
-                <td>Question</td>
-                <td>Answer</td>
-                <td>Description</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1. What is the level of access to the site?</td>
-                <td>Answer</td>
-                <td>Unconstrained access</td>
-            </tr>
-            <tr>
-                <td>2. Are there any official designations for the site?</td>
-                <td>Answer</td>
-                <td>No designation</td>
-            </tr>
-            <tr>
-                <td>3. What types of site compounds do you have?</td>
-                <td>Answer</td>
-                <td>No compound (welfare only)</td>
-            </tr>
-            <tr>
-                <td>4. Is the project in a remote location with difficult access to resources?</td>
-                <td>
-                    <input 
-                        type="checkbox" 
-                        form="form-drivers-4" 
-                        hx-target="#fd4d" 
-                        hx-swap="textContent" 
-                        hx-trigger="change" 
-                    >
-                </td>
-                <td id="#fd4d">No (Easily accessible with no major logistical issues)</td>
-            </tr>
-            <tr>
-                <td>5. How is the project classified?</td>
-                <td>Answer</td>
-                <td>Standard Project (£1m-£50m)</td>
-            </tr>
-            <tr>
-                <td>6. Is there any hazardous waste present on the site?</td>
-                <td>
-                    <input 
-                        type="checkbox" 
-                        hx-get="/fd6dr"
-                        hx-trigger="input" 
-                        hx-swap="innerHTML" 
-                        hx-target="#fd6d" 
-                    >
-                </td>
-                <td id="#fd6d">No</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>7. How would you describe the ground conditions on the site?</p>
-    <p>8. What is required for the existing non-EA structures at the site?</p>
-    <p>9. What type of species are present/anticipated on the site?</p>
-    <p>10. Is the project adversely influenced by any of the following?</p>
-    <p>11. Is the project completion milestone constrained due to an external factor?</p>
-    <p>12. What utilities are not available to connect for the construction works?</p>
+    <input type="hidden" id="postId" name="postId" value="{{ enq.enq }}" />
 
+    <!--- <p>{{ url_for('static', filename='css/site.css') }}</p> --->
+
+    <!-- Tabs Section -->
+    <div class="tabs">
+        <div class="tab-nav">
+            <button class="tab-button active" data-tab="project-drivers">Project Drivers</button>
+            <button class="tab-button" data-tab="asset-options">Asset Options</button>
+            <button class="tab-button" data-tab="basic-example">Basic Example</button>
+        </div>
+    
+        <!-- Project Drivers Tab -->
+        <div class="tab-content active" id="project-drivers">
+            <div class="feature-card">
+                <h2>Project Drivers</h2>
+                <!-- <div class="support-stats">
+                    <div class="stat">
+                        <span class="stat-number">96.23%</span>
+                        <span class="stat-label">Global Usage</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">✅</span>
+                        <span class="stat-label">Modern Browsers</span>
+                    </div>
+                </div> -->
+
+                <button form="form-drivers">Submit updates</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Question</td>
+                            <td>Answer</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. What is the level of access to the site?</td>
+                            <td>
+                                <fieldset>
+                                    <legend>Select one:</legend>
+
+                                    <div>
+                                        <input type="radio" id="fd1a0" name="fd1acc" form="form-drivers" value=0 checked />
+                                        <label for="fd1a0">Unconstrained access</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a1" name="fd1acc" form="form-drivers" value=1 />
+                                        <label for="fd1a1">Physically constrained access</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a2" name="fd1acc" form="form-drivers" value=2 />
+                                        <label for="fd1a2">Time limited access (e.g. certain hours accessible)</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a3" name="fd1acc" form="form-drivers" value=3 />
+                                        <label for="fd1a3">Third party access (e.g. access through land owned by others, access rights needed)</label>
+                                    </div>
+                                    
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2. Are there any official designations for the site?</td>
+                            <td>
+                            <fieldset>
+                                    <legend>Select one:</legend>
+
+                                    <div>
+                                        <input type="radio" id="fd2a0" name="fd2des" form="form-drivers" value=0 checked />
+                                        <label for="fd2a0">No designation</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a1" name="fd2des" form="form-drivers" value=1 />
+                                        <label for="fd2a1">Area of outstanding natural beauty (AONB)</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a2" name="fd2des" form="form-drivers" value=2 />
+                                        <label for="fd2a2">National Park</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a3" name="fd2des" form="form-drivers" value=3 />
+                                        <label for="fd2a3">SSSIS, SACs, SPAs, Ramsar wetlands</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a4" name="fd2des" form="form-drivers" value=4 />
+                                        <label for="fd2a4">Marine Conservation Zones</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a5" name="fd2des" form="form-drivers" value=5 />
+                                        <label for="fd2a5">Conservation Zones</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd2a6" name="fd2des" form="form-drivers" value=6 />
+                                        <label for="fd2a6">TPO (Tree Protection Orders)</label>
+                                    </div>
+                                    
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3. What types of site compounds do you have (if any)?</td>
+                            <td>
+                                <select name="fd3comp" id="fd3a" form="form-drivers" multiple>
+                                    <option value="1">Standard/main compound </option>
+                                    <option value="2">Satellite compound </option>
+                                    <option value="3">Highways </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4. Is the project in a remote location with difficult access to resources?</td>
+                            <td>
+                                <select name="fd4loc" id="fd4a" form="form-drivers">
+                                    <option value="0">No (Easily accessible with no major logistical issues)</option>
+                                    <option value="1">Yes (Significant challenges in accessing materials and labour)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5. How is the project classified?</td>
+                            <td>
+                                <select name="fd5amt" id="fd5a" form="form-drivers">
+                                    <option value="0">Standard Project (£1m-£50m)</option>
+                                    <option value="1">Major Project (£50m+)</option>
+                                    <option value="2">Minor Project (below £1m)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6. Is there any hazardous waste present on the site?</td>
+                            <td>
+                                <input type="checkbox" id="#fd6d" form="form-drivers">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7. How would you describe the ground conditions on the site?</td>
+                            <td>
+                                <select name="fd7cond" id="fd7a" form="form-drivers">
+                                    <option value="0">No issues</option>
+                                    <option value="1">Minor issues</option>
+                                    <option value="2">Severe issues</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8. What is required for the existing non-EA structures at the site?</td>
+                            <td>
+                                <div>
+                                    <input type="radio" id="fd8a0" name="fd8str" form="form-drivers" value=0 checked />
+                                    <label for="fd8a0">No requirement</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd8a1" name="fd8str" form="form-drivers" value=1 />
+                                    <label for="fd8a1">Removal (Complete demolition and disposal)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd8a2" name="fd8str" form="form-drivers" value=2 />
+                                    <label for="fd8a2">Relocation or Diversion (Moving structures to a new location, service or road diversion)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd8a3" name="fd8str" form="form-drivers" value=3 />
+                                    <label for="fd8a3">Partial Removal (Selective demolition and disposal)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd8a4" name="fd8str" form="form-drivers" value=4 />
+                                    <label for="fd8a4">Protection of existing structures (existing structures in place)</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9. What type of species are present/anticipated on the site?</td>
+                            <td>
+                                <div>
+                                    <input type="radio" id="fd9a0" name="fd9spe" form="form-drivers" value=0 checked />
+                                    <label for="fd9a0">Common Species (e.g. native species with no special status)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd9a1" name="fd9spe" form="form-drivers" value=1 />
+                                    <label for="fd9a1">Protected Species (e.g. endangered or threatened species)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd9a2" name="fd9spe" form="form-drivers" value=2 />
+                                    <label for="fd9a2">Invasive Species (e.g. species that disrupt local ecosystems)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="fd9a3" name="fd9spe" form="form-drivers" value=3 />
+                                    <label for="fd9a3">Migratory Species (e.g. species that move through the area seasonally)</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>10. Is the project adversely influenced by any of the following?</p>
+                <p>11. Is the project completion milestone constrained due to an external factor?</p>
+                <p>12. What utilities are not available to connect for the construction works?</p>
+            </div>
+        </div>
+
+        <!-- Key Features Tab -->
+        <div class="tab-content" id="key-features">
+            <h3>Key Features</h3>
+            <ul class="feature-list">
+                <li>Two-dimensional layout system</li>
+                <li>Responsive design capabilities</li>
+                <li>Flexible item sizing</li>
+                <li>Grid template areas</li>
+                <li>Automatic placement algorithms</li>
+                <li>Grid line naming</li>
+                <li>Subgrid support (newer browsers)</li>
+            </ul>
+        </div>
+
+        <!-- Basic Grid Example Tab -->
+        <div class="tab-content" id="basic-example">
+            <div class="code-example">
+                <h4>Basic Grid Example</h4>
+            </div>
+        </div>
+    </div>
+
+<!---
     <h2>Current Answers</h2>
     <p>
         1. What is the level of access to the site?<br>
@@ -174,11 +333,32 @@
             Foul Water
             Power
             Data/Telecommunications
+--->
 
-        <td><label class="switch">
-                <input type="checkbox" form="form-drivers">
-                <span class="slider round"></span>
-            </label></td>
+<script>
+    // Tab functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Show corresponding content
+            const tabId = button.getAttribute('data-tab');
+            const content = document.getElementById(tabId);
+            if (content) {
+                content.classList.add('active');
+            }
+        });
+    });
+</script>
+
 {% endblock %}
 
 {% block internallinks %}

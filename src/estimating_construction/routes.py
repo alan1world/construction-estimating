@@ -12,10 +12,13 @@ from flask import render_template, flash, redirect, url_for
 
 from estimating_construction import app
 from estimating_construction.forms import NewFullEnquiryForm
+from estimating_construction.data import faked  #, models
 
-
-enqs = []
+# enqs = []
 options = []
+
+# fake_date = faked.create_full_record()
+enqs = faked.create_full_record()
 
 samples = {
     "projects": {"P1": "Test 1", "P2": "Test 2", "P3": "Test 3"},
@@ -29,6 +32,8 @@ samples = {
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    # print(models.hubs())
+    # print(models.Hub().hubs_as_list())
     form = NewFullEnquiryForm()
     user = {'username': 'Miguel'}
     posts = [
