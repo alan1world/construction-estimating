@@ -52,6 +52,33 @@
 
     <!--- <p>{{ url_for('static', filename='css/site.css') }}</p> --->
 
+    <dialog id="qd1">
+        <form id="qd1f" action="" method="post" novalidate></form>
+            <fieldset id="qd1fs">
+                <legend>Select one:</legend>
+                <div>
+                    <!-- <input type="radio" id="fd1a0" name="fd1acc" value=0 checked /> -->
+                    <input type="radio" id="fd1a0" name="qd1acc" value="Unconstrained access" checked />
+                    <label for="fd1a0">Unconstrained access</label>
+                </div>
+                <div>
+                    <input type="radio" id="fd1a1" name="qd1acc" value="Physically constrained access" />
+                    <label for="fd1a1">Physically constrained access</label>
+                </div>
+                <div>
+                    <input type="radio" id="fd1a2" name="qd1acc" value=2 />
+                    <label for="fd1a2">Time limited access (e.g. certain hours accessible)</label>
+                </div>
+                <div>
+                    <input type="radio" id="fd1a3" name="qd1acc" value=3 />
+                    <label for="fd1a3">Third party access (e.g. access through land owned by others, access rights needed)</label>
+                </div>
+            </fieldset>                   
+        <button data-dialog-action="close" aria-controls="qd1">Close</button>
+        </form>
+    </dialog>
+    
+
     <!-- Tabs Section -->
     <div class="tabs">
         <div class="tab-nav">
@@ -80,6 +107,7 @@
                     <thead>
                         <tr>
                             <td>Question</td>
+                            <td></td>
                             <td>Answer</td>
                         </tr>
                     </thead>
@@ -87,7 +115,35 @@
                         <tr>
                             <td>1. What is the level of access to the site?</td>
                             <td>
-                                <fieldset>
+                                <button data-dialog-action="showModal" aria-controls="qd1">Edit</button>
+                                <!-- <dialog id="qd1">
+                                    <!-- <h2>Keep me informed</h2> -->
+                                    <!-- ... -->
+                                    <!-- <fieldset>
+                                    <legend>Select one:</legend>
+                                        <div>
+                                            <input type="radio" id="fd1a0" name="fd1acc" form="form-drivers" value=0 checked />
+                                            <label for="fd1a0">Unconstrained access</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="fd1a1" name="fd1acc" form="form-drivers" value=1 />
+                                            <label for="fd1a1">Physically constrained access</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="fd1a2" name="fd1acc" form="form-drivers" value=2 />
+                                            <label for="fd1a2">Time limited access (e.g. certain hours accessible)</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="fd1a3" name="fd1acc" form="form-drivers" value=3 />
+                                            <label for="fd1a3">Third party access (e.g. access through land owned by others, access rights needed)</label>
+                                        </div>
+                                    </fieldset>                                                                        
+                                    <button data-dialog-action="close" aria-controls="qd1">Close</button>
+                                </dialog> -->
+                            </td>
+                            <td>
+                                <div id="qd1a"></div>
+                                <!-- <fieldset>
                                     <legend>Select one:</legend>
 
                                     <div>
@@ -107,11 +163,40 @@
                                         <label for="fd1a3">Third party access (e.g. access through land owned by others, access rights needed)</label>
                                     </div>
                                     
-                                </fieldset>
+                                </fieldset> -->
+                                <!-- <fieldset>
+                                    <legend>Select one:</legend>
+
+                                    <div>
+                                        <input type="radio" id="fd1a0" name="fd1acc" form="form-drivers" value=0 checked />
+                                        <label for="fd1a0">Unconstrained access</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a1" name="fd1acc" form="form-drivers" value=1 />
+                                        <label for="fd1a1">Physically constrained access</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a2" name="fd1acc" form="form-drivers" value=2 />
+                                        <label for="fd1a2">Time limited access (e.g. certain hours accessible)</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="fd1a3" name="fd1acc" form="form-drivers" value=3 />
+                                        <label for="fd1a3">Third party access (e.g. access through land owned by others, access rights needed)</label>
+                                    </div>
+                                    
+                                </fieldset> -->
                             </td>
                         </tr>
                         <tr>
                             <td>2. Are there any official designations for the site?</td>
+                            <td>
+                                <button data-dialog-action="showModal" aria-controls="qd2">Edit</button>
+                                <dialog id="qd2">
+                                    <h2>Keep me informed</h2>
+                                    <!-- ... -->
+                                    <button data-dialog-action="close" aria-controls="qd2">Close</button>
+                                </dialog>
+                            </td>
                             <td>
                             <fieldset>
                                     <legend>Select one:</legend>
@@ -151,6 +236,14 @@
                         <tr>
                             <td>3. What types of site compounds do you have (if any)?</td>
                             <td>
+                                <dialog>
+                                    <h2>Keep me informed</h2>
+                                    <!-- ... -->
+                                    <button>Close</button>
+                                </dialog>
+                                <button>Edit</button>
+                            </td>
+                            <td>
                                 <select name="fd3comp" id="fd3a" form="form-drivers" multiple>
                                     <option value="1">Standard/main compound </option>
                                     <option value="2">Satellite compound </option>
@@ -160,6 +253,7 @@
                         </tr>
                         <tr>
                             <td>4. Is the project in a remote location with difficult access to resources?</td>
+                            <td><button>Edit</button></td>
                             <td>
                                 <select name="fd4loc" id="fd4a" form="form-drivers">
                                     <option value="0">No (Easily accessible with no major logistical issues)</option>
@@ -169,6 +263,7 @@
                         </tr>
                         <tr>
                             <td>5. How is the project classified?</td>
+                            <td><button>Edit</button></td>
                             <td>
                                 <select name="fd5amt" id="fd5a" form="form-drivers">
                                     <option value="0">Standard Project (£1m-£50m)</option>
@@ -179,12 +274,14 @@
                         </tr>
                         <tr>
                             <td>6. Is there any hazardous waste present on the site?</td>
+                            <td><button>Edit</button></td>
                             <td>
                                 <input type="checkbox" id="#fd6d" form="form-drivers">
                             </td>
                         </tr>
                         <tr>
                             <td>7. How would you describe the ground conditions on the site?</td>
+                            <td><button>Edit</button></td>
                             <td>
                                 <select name="fd7cond" id="fd7a" form="form-drivers">
                                     <option value="0">No issues</option>
@@ -195,6 +292,14 @@
                         </tr>
                         <tr>
                             <td>8. What is required for the existing non-EA structures at the site?</td>
+                            <td>
+                                <dialog>
+                                    <h2>Keep me informed</h2>
+                                    <!-- ... -->
+                                    <button>Close</button>
+                                </dialog>
+                                <button>Edit</button>
+                            </td>
                             <td>
                                 <div>
                                     <input type="radio" id="fd8a0" name="fd8str" form="form-drivers" value=0 checked />
@@ -220,6 +325,7 @@
                         </tr>
                         <tr>
                             <td>9. What type of species are present/anticipated on the site?</td>
+                            <td><button>Edit</button></td>
                             <td>
                                 <div>
                                     <input type="radio" id="fd9a0" name="fd9spe" form="form-drivers" value=0 checked />
@@ -248,8 +354,8 @@
         </div>
 
         <!-- Key Features Tab -->
-        <div class="tab-content" id="key-features">
-            <h3>Key Features</h3>
+        <div class="tab-content" id="asset-options">
+            <h3>Asset Options</h3>
             <ul class="feature-list">
                 <li>Two-dimensional layout system</li>
                 <li>Responsive design capabilities</li>
@@ -356,6 +462,49 @@
                 content.classList.add('active');
             }
         });
+    });
+    // const dialog = document.querySelector("dialog");
+    // const showButton = document.querySelector("dialog + button");
+    // showButton.addEventListener("click", () => {
+    //     dialog.showModal();
+    //     });
+    // const closeButton = document.querySelector("dialog button");
+    //     closeButton.addEventListener("click", () => {
+    //     dialog.close();
+    // });
+    // document.querySelectorAll('dialog[id]').forEach((dialog) => {
+    //     const openButton = document.querySelector(
+    //         `button:is([data-dialog-action="show"], [data-dialog-action="showModal"])[aria-controls="${dialog.id}"]`
+    //     );
+    //     const closeButton = document.querySelector(
+    //         `button[data-dialog-action="close"][aria-controls="${dialog.id}"]`
+    //     );
+    // });
+    document.querySelectorAll('dialog[id]').forEach((dialog) => {
+        const openButton = document.querySelector(
+            `button:is([data-dialog-action="show"], [data-dialog-action="showModal"])[aria-controls="${dialog.id}"]`
+        ).addEventListener("click", () => {
+            dialog.showModal();
+            });
+        const closeButton = document.querySelector(
+            `button[data-dialog-action="close"][aria-controls="${dialog.id}"]`
+        ).addEventListener("click", () => {
+            // document.getElementById('qd1a').innerText = document.getElementsByName('fd1acc').value;
+            let idAnswer = `${dialog.id}acc`;
+            const divAnswer = document.getElementById('qd1a');
+            // const collection = document.getElementsByName('fd1acc');
+            const collection = document.getElementsByName(idAnswer);
+            for (let i = 0; i < collection.length; i++) {
+                // if (collection[i].type == "checkbox") {
+                //     collection[i].checked = true;
+                if (collection[i].checked == true) {
+                    // divAnswer.innerText = collection[i].value;
+                    divAnswer.innerText = collection[i].value;
+                    }
+                }
+            dialog.close();
+            // document.getElementById('qd1a').innerText = "Done";
+            });
     });
 </script>
 

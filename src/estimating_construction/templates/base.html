@@ -11,6 +11,7 @@
       <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
       <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/tabs.css') }}">
+      <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -40,7 +41,8 @@
         
             {% block locallinks %}{% endblock %}
             <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-            <script src="/static/js/htmx.js"></script>
+            <!-- <script src="/static/js/htmx.js"></script> -->
+            <!-- <script src="https://unpkg.com/htmx.org@2.0.6/dist/htmx.min.js"></script> -->
             <script 
                 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
                 integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
