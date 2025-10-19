@@ -11,7 +11,7 @@ from flask import render_template, flash, redirect, url_for
 # from flask import send_from_directory
 
 from estimating_construction import app
-from estimating_construction.forms import NewFullEnquiryForm
+from estimating_construction.forms import NewFullEnquiryForm, DesignationsForm
 from estimating_construction.data import faked  #, models
 
 # enqs = []
@@ -72,11 +72,12 @@ def index():
 
 @app.route('/enquiries/<int:id>', methods=['GET'])
 def enquiries(id):
+    dform = DesignationsForm()
     try:
         enq = enqs[id]
     except:
         return redirect(url_for('index'))
-    return render_template('enquiries.html', title=f"Enquiry Form {id}", enq=enq)
+    return render_template('enquiries.html', title=f"Enquiry Form {id}", enq=enq, dform=dform)
 
 @app.route('/drl/', methods=['GET',])
 @app.route('/drl/index', methods=['GET',])  # GET, POST, PUT, +?UPDATE?

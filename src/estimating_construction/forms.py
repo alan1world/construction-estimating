@@ -1,13 +1,27 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms import EmailField, TelField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
+from wtforms import EmailField, TelField, SelectField, SelectMultipleField
+from wtforms.widgets import ListWidget, CheckboxInput
 from wtforms.validators import DataRequired
+
+
+class MultiCheckboxField(SelectMultipleField):
+    """
+    A multiple-select, except displays a list of checkboxes.
+
+    Iterating the field will produce subfields, allowing custom rendering of
+    the enclosed checkbox fields.
+    """
+    widget = ListWidget(prefix_label=False)
+    option_widget = CheckboxInput()
+
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember me')
     submit = SubmitField('Submit')
+
 
 class NewFullEnquiryForm(FlaskForm):
     fullname = StringField('Full name')
@@ -36,11 +50,13 @@ class NewFullEnquiryForm(FlaskForm):
         ])
     submit = SubmitField('Submit')
 
+
 class NewProjectForm(FlaskForm):
     sop = StringField('Project SOP code')
     description = StringField('Description')
     hub = StringField('Hub')
     submit = SubmitField('Submit')
+
 
 class NewPersonForm(FlaskForm):
     fullname = StringField('Full name')
@@ -49,10 +65,25 @@ class NewPersonForm(FlaskForm):
     phone = TelField('Phone')
     submit = SubmitField('Submit')
 
+
 class NewEnquiryForm(FlaskForm):
     gateway = StringField('Gateway')
     type = StringField('Estimate type')
     partner = StringField('Partner')
     contract = StringField('Contract')
     submit = SubmitField('Submit')
+
+
+class DesignationsFormRadio(FlaskForm):
+    designation = RadioField(choices=["Random", "Fixed", "None"])
+    submit = SubmitField('Submit')
+
+
+class DesignationsForm(FlaskForm):
+    designation = MultiCheckboxField(choices=["Random", "Fixed", "None"])
+    submit = SubmitField('Submit')
+
+
+class EnquiriesModalSubform(FlaskForm):
+    available_options = MultiCheckboxField('Preferences', choices=[])
 
