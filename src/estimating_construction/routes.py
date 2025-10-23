@@ -7,11 +7,13 @@ import itertools
 
 from pathlib import Path
 
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 # from flask import send_from_directory
 
 from estimating_construction import app
-from estimating_construction.forms import NewFullEnquiryForm, DesignationsForm
+from estimating_construction.forms import NewFullEnquiryForm
+from estimating_construction.forms import DesignationsForm
+from estimating_construction.forms import ProjectPriceFormRadio
 from estimating_construction.data import faked  #, models
 
 # enqs = []
@@ -142,4 +144,20 @@ def fd6dr():
 # @app.route('/assets/index', methods=['GET', 'POST'])
 # def assets():
 #     pass
+
+# @app.route('/api/v1/<int:id>', methods=['PUT', 'POST',])
+@app.route('/api/v1/q', methods=['PUT', 'POST',])
+# def cost_driver_questions(id):
+def cost_driver_questions():
+    form = ProjectPriceFormRadio()
+    return render_template('cost_driver_form.html', form=form)
+
+@app.route('/api/v1/a', methods=['PUT', 'POST',])
+# def cost_driver_questions(id):
+def cost_driver_answers():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    answer = request.form["designation"]
+    return answer
 

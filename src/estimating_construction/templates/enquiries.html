@@ -52,7 +52,7 @@
 
     <!--- <p>{{ url_for('static', filename='css/site.css') }}</p> --->
 
-    <dialog id="qd1">
+    <dialog id="qd1" class="cost-driver-modal" >
         <form id="qd1f" action="" method="post" novalidate></form>
             <fieldset id="qd1fs">
                 <legend>Select one:</legend>
@@ -91,18 +91,51 @@
         <div class="tab-content active" id="project-drivers">
             <div class="feature-card">
                 <h2>Project Drivers</h2>
-                <!-- <div class="support-stats">
-                    <div class="stat">
-                        <span class="stat-number">96.23%</span>
-                        <span class="stat-label">Global Usage</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">✅</span>
-                        <span class="stat-label">Modern Browsers</span>
-                    </div>
-                </div> -->
 
-                <button form="form-drivers">Submit updates</button>
+                <!-- <button form="form-drivers">Submit updates</button> -->
+                <!-- Need to move the form dialogs to use flask wtf -->
+                <div class=cost-drivers>
+                    <div>Question</div>
+                    <div></div>
+                    <div>Answer</div>
+                    <div>1. What is the level of access to the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>2. Are there any official designations for the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>3. What types of site compounds do you have (if any)?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>4. Is the project in a remote location with difficult access to resources?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>5. How is the project classified?</div>
+                    <div><button hx-target="#q5a" hx-put="{{ url_for('cost_driver_questions') }}" hx-swap="innerHTML">Click Me</button></div>
+                    <div id="q5a"></div>
+                    <div>6. Is there any hazardous waste present on the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>7. How would you describe the ground conditions on the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>8. What is required for the existing non-EA structures at the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>9. What type of species are present/anticipated on the site?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>10. Is the project adversely influenced by any of the following?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>11. Is the project completion milestone constrained due to an external factor?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                    <div>12. What utilities are not available to connect for the construction works?</div>
+                    <div><button>Edit</button></div>
+                    <div></div>
+                </div>
+                
                 <table>
                     <thead>
                         <tr>
@@ -142,7 +175,7 @@
                                 </dialog> -->
                             </td>
                             <td>
-                                <div id="qd1b">{{ dform.designation }}<br>{{ dform.submit }}</div>
+                                <!-- <div id="qd1b">{{ dform.designation }}<br>{{ dform.submit }}</div> -->
                                 <div id="qd1a"></div>
                                 <!-- <fieldset>
                                     <legend>Select one:</legend>
@@ -199,6 +232,7 @@
                                 </dialog>
                             </td>
                             <td>
+                            <!--
                             <fieldset>
                                     <legend>Select one:</legend>
 
@@ -232,6 +266,7 @@
                                     </div>
                                     
                                 </fieldset>
+                                -->
                             </td>
                         </tr>
                         <tr>
@@ -245,50 +280,58 @@
                                 <button>Edit</button>
                             </td>
                             <td>
+                                <!--
                                 <select name="fd3comp" id="fd3a" form="form-drivers" multiple>
                                     <option value="1">Standard/main compound </option>
                                     <option value="2">Satellite compound </option>
                                     <option value="3">Highways </option>
                                 </select>
+                                -->
                             </td>
                         </tr>
                         <tr>
                             <td>4. Is the project in a remote location with difficult access to resources?</td>
                             <td><button>Edit</button></td>
                             <td>
+                                <!--
                                 <select name="fd4loc" id="fd4a" form="form-drivers">
                                     <option value="0">No (Easily accessible with no major logistical issues)</option>
                                     <option value="1">Yes (Significant challenges in accessing materials and labour)</option>
                                 </select>
+                                -->
                             </td>
                         </tr>
                         <tr>
                             <td>5. How is the project classified?</td>
                             <td><button>Edit</button></td>
                             <td>
+                                <!--
                                 <select name="fd5amt" id="fd5a" form="form-drivers">
                                     <option value="0">Standard Project (£1m-£50m)</option>
                                     <option value="1">Major Project (£50m+)</option>
                                     <option value="2">Minor Project (below £1m)</option>
                                 </select>
+                                -->
                             </td>
                         </tr>
                         <tr>
                             <td>6. Is there any hazardous waste present on the site?</td>
                             <td><button>Edit</button></td>
                             <td>
-                                <input type="checkbox" id="#fd6d" form="form-drivers">
+                                <!-- <input type="checkbox" id="#fd6d" form="form-drivers"> -->
                             </td>
                         </tr>
                         <tr>
                             <td>7. How would you describe the ground conditions on the site?</td>
                             <td><button>Edit</button></td>
                             <td>
+                                <!--
                                 <select name="fd7cond" id="fd7a" form="form-drivers">
                                     <option value="0">No issues</option>
                                     <option value="1">Minor issues</option>
                                     <option value="2">Severe issues</option>
                                 </select>
+                                -->
                             </td>
                         </tr>
                         <tr>
@@ -302,6 +345,7 @@
                                 <button>Edit</button>
                             </td>
                             <td>
+                                <!--
                                 <div>
                                     <input type="radio" id="fd8a0" name="fd8str" form="form-drivers" value=0 checked />
                                     <label for="fd8a0">No requirement</label>
@@ -322,12 +366,14 @@
                                     <input type="radio" id="fd8a4" name="fd8str" form="form-drivers" value=4 />
                                     <label for="fd8a4">Protection of existing structures (existing structures in place)</label>
                                 </div>
+                                -->
                             </td>
                         </tr>
                         <tr>
                             <td>9. What type of species are present/anticipated on the site?</td>
                             <td><button>Edit</button></td>
                             <td>
+                                <!--
                                 <div>
                                     <input type="radio" id="fd9a0" name="fd9spe" form="form-drivers" value=0 checked />
                                     <label for="fd9a0">Common Species (e.g. native species with no special status)</label>
@@ -344,6 +390,7 @@
                                     <input type="radio" id="fd9a3" name="fd9spe" form="form-drivers" value=3 />
                                     <label for="fd9a3">Migratory Species (e.g. species that move through the area seasonally)</label>
                                 </div>
+                                -->
                             </td>
                         </tr>
                     </tbody>

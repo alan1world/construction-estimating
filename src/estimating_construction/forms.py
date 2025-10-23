@@ -87,3 +87,12 @@ class DesignationsForm(FlaskForm):
 class EnquiriesModalSubform(FlaskForm):
     available_options = MultiCheckboxField('Preferences', choices=[])
 
+
+class ProjectPriceFormRadio(FlaskForm):
+    designation = RadioField(choices=[
+                                "Standard Project (£1m-£50m)", 
+                                "Major Project (£50m+)", 
+                                "Minor Project (below £1m)"],
+                                )
+    submit = SubmitField('Submit')
+

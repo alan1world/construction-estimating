@@ -195,3 +195,13 @@ p {
     line-height: 1.6;
 } 
 
+.cost-drivers {
+  display: grid;
+  grid-template-columns: [question] 3fr [edit] 1fr [answer] 3fr;
+}
+
+.cost-driver-modal {
+  position: fixed;
+  z-index: 1000;
+}
+
