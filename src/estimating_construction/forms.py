@@ -30,7 +30,7 @@ class NewFullEnquiryForm(FlaskForm):
     phone = TelField('Phone')
     sop = StringField('Project SOP code', validators=[DataRequired()])
     gateway = SelectField('Gateway', choices=[
-        "0 - Mandate", 
+        "0 - Mandate",
         "1 - SOC Development",
         "2 - SOC-OBC Appraisal",
         "3 - OBC-FBC Detailed Design",
@@ -41,7 +41,7 @@ class NewFullEnquiryForm(FlaskForm):
     partner = SelectField('Partner', choices=["Lot 1", "Lot 2", "N/A"])
     contract = SelectField('Contract', choices=["PSC", "ECC"])
     hub = SelectField('Hub', choices=[
-        "North East", 
+        "North East",
         "North West",
         'South East',
         'South West',
@@ -89,10 +89,45 @@ class EnquiriesModalSubform(FlaskForm):
 
 
 class ProjectPriceFormRadio(FlaskForm):
-    designation = RadioField(choices=[
-                                "Standard Project (£1m-£50m)", 
-                                "Major Project (£50m+)", 
+    price = RadioField(choices=[
+                                "Standard Project (£1m-£50m)",
+                                "Major Project (£50m+)",
                                 "Minor Project (below £1m)"],
-                                )
+                             )
     submit = SubmitField('Submit')
 
+
+class SiteAccessRadio(FlaskForm):
+    access = RadioField(choices=[
+                                "Yes (Significant challenges in accessing materials and labour)",
+                                "No (Easily accessible with no major logistical issues)",]
+                             )
+    submit = SubmitField('Submit')
+
+
+class HazardousWasteRadio(FlaskForm):
+    waste = RadioField(choices=[
+                                "Yes",
+                                "No",]
+                             )
+    submit = SubmitField('Submit')
+
+
+class GroundConditionsRadio(FlaskForm):
+    ground = RadioField(choices=[
+                                "No issues",
+                                "Minor issues",
+                                "Severe issues",]
+                             )
+    submit = SubmitField('Submit')
+
+
+class SpeciesForm(FlaskForm):
+    species = MultiCheckboxField(choices=[
+                                    "Common Species (e.g. native species with no special status)",
+                                    "Migratory Species (e.g. species that move through the area seasonally)",
+                                    "Protected Species (e.g. endangered or threatened species)",
+                                    "Invasive Species (e.g. species that disrupt local ecosystems)",
+                                    ])
+    submit = SubmitField('Submit')
+    

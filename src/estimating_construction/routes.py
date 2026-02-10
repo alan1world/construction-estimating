@@ -7,14 +7,19 @@ import itertools
 
 from pathlib import Path
 
-from flask import render_template, flash, redirect, url_for, request
-# from flask import send_from_directory
+from flask import render_template, redirect, url_for, request
+# from flask import send_from_directory, flash
 
 from estimating_construction import app
-from estimating_construction.forms import NewFullEnquiryForm
+from estimating_construction.data import faked  #, models
+
+# from estimating_construction.forms import NewFullEnquiryForm
 from estimating_construction.forms import DesignationsForm
 from estimating_construction.forms import ProjectPriceFormRadio
-from estimating_construction.data import faked  #, models
+from estimating_construction.forms import SiteAccessRadio
+from estimating_construction.forms import HazardousWasteRadio
+from estimating_construction.forms import GroundConditionsRadio
+from estimating_construction.forms import SpeciesForm
 
 # enqs = []
 options = []
@@ -29,14 +34,15 @@ samples = {
         {"key": "C2", "name": "Con 2", "project": "P2"},
         {"key": "C3", "name": "Con 3", "project": "P3"},
         ]
-} 
+}
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     # print(models.hubs())
     # print(models.Hub().hubs_as_list())
-    form = NewFullEnquiryForm()
+    # form = NewFullEnquiryForm()
     user = {'username': 'Miguel'}
     posts = [
         {
@@ -52,34 +58,51 @@ def index():
     #     flash('Login requested for user {}, remember_me={}'.format(
     #         form.username.data, form.remember_me.data))
     #     return redirect('/index')
-    if form.validate_on_submit():
-        next_id = len(enqs)
-        enq_link = url_for('enquiries', id=next_id)
-        enq = {
-            "project": form.sop.data,
-            "name": form.fullname.data,
-            "hub": form.hub.data,
-            "type": form.type.data,
-            "gateway": form.gateway.data,
-            "partner": form.partner.data,
-            "contract": form.contract.data,
-            "enq": next_id,
-            "link": enq_link,
-            }
-        enqs.append(enq)
-        flash('Enquiry added for {}'.format(
-            form.sop.data))
-        return redirect(url_for('index'))
-    return render_template('index.html', title='Home', user=user, posts=posts, form=form, enqs=enqs)
+    # if form.validate_on_submit():
+    #     next_id = len(enqs)
+    #     enq_link = url_for('enquiries', id=next_id)
+    #     enq = {
+    #         "project": form.sop.data,
+    #         "name": form.fullname.data,
+    #         "hub": form.hub.data,
+    #         "type": form.type.data,
+    #         "gateway": form.gateway.data,
+    #         "partner": form.partner.data,
+    #         "contract": form.contract.data,
+    #         "enq": next_id,
+    #         "link": enq_link,
+    #         }
+    #     enqs.append(enq)
+    #     flash('Enquiry added for {}'.format(
+    #         form.sop.data))
+    #     return redirect(url_for('index'))
+    # return render_template('index.html', title='Home', user=user, posts=posts, form=form, enqs=enqs)
+    return render_template('index.html', title='Home', user=user, posts=posts, enqs=enqs)
 
-@app.route('/enquiries/<int:id>', methods=['GET'])
+
+@app.route('/enquiries/<int:id>', methods=['GET', 'POST'])
 def enquiries(id):
     dform = DesignationsForm()
+    ppform = ProjectPriceFormRadio()
+    saform = SiteAccessRadio()
+    hwform = HazardousWasteRadio()
+    gcform = GroundConditionsRadio()
+    spform = SpeciesForm()
     try:
         enq = enqs[id]
     except:
         return redirect(url_for('index'))
-    return render_template('enquiries.html', title=f"Enquiry Form {id}", enq=enq, dform=dform)
+    return render_template('enquiries.html',
+                           title=f"Enquiry Form {id}",
+                           enq=enq,
+                           dform=dform,
+                           ppform=ppform,
+                           saform=saform,
+                           hwform=hwform,
+                           gcform=gcform,
+                           spform=spform,
+                           )
+
 
 @app.route('/drl/', methods=['GET',])
 @app.route('/drl/index', methods=['GET',])  # GET, POST, PUT, +?UPDATE?
@@ -93,19 +116,20 @@ def drl():
     # with Path(file_categories).open() as f:
     # # with open("estimating_construction/categories.csv") as f:
     #         categories = json.load(f)
-    assets=[]
+    assets = []
     with Path(file_assets).open() as f:
-            assets = json.load(f)
-            # for item in json.load(f):
-            #     asset = {
-            #         "label": item["id"].split("/")[-1],
-            #         "description": item["description"],
-            #         "category": item["category"].split("/")[-1],
-            #     }
-            #     assets.append(asset)
-            # print(assets[0])
+        assets = json.load(f)
+        # for item in json.load(f):
+        #     asset = {
+        #         "label": item["id"].split("/")[-1],
+        #         "description": item["description"],
+        #         "category": item["category"].split("/")[-1],
+        #     }
+        #     assets.append(asset)
+        # print(assets[0])
     # return redirect(url_for('index'))
     return render_template('drl.html', assets=assets)
+
 
 @app.route('/fd6dr/', methods=['GET',])
 @app.route('/fd6dr/index', methods=['GET',])  # GET, POST, PUT, +?UPDATE?
@@ -145,12 +169,14 @@ def fd6dr():
 # def assets():
 #     pass
 
+
 # @app.route('/api/v1/<int:id>', methods=['PUT', 'POST',])
 @app.route('/api/v1/q', methods=['PUT', 'POST',])
 # def cost_driver_questions(id):
 def cost_driver_questions():
     form = ProjectPriceFormRadio()
     return render_template('cost_driver_form.html', form=form)
+
 
 @app.route('/api/v1/a', methods=['PUT', 'POST',])
 # def cost_driver_questions(id):
@@ -159,5 +185,45 @@ def cost_driver_answers():
         # return 'WIN'
     # return 'LOSE'
     answer = request.form["designation"]
+    return answer
+
+
+@app.route('/api/v1/cd4', methods=['PATCH',])
+# def cost_driver_questions(id):
+def cost_driver_4():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    answer = request.form["access"]
+    return answer
+
+
+@app.route('/api/v1/cd6', methods=['PATCH',])
+# def cost_driver_questions(id):
+def cost_driver_6():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    answer = request.form["waste"]
+    return answer
+
+
+@app.route('/api/v1/cd7', methods=['PATCH',])
+# def cost_driver_questions(id):
+def cost_driver_7():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    answer = request.form["ground"]
+    return answer
+
+
+@app.route('/api/v1/cd9', methods=['PATCH',])
+# def cost_driver_questions(id):
+def cost_driver_9():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    answer = '\n'.join(request.form.getlist("species"))
     return answer
 
