@@ -83,7 +83,7 @@
                     <div>4. Is the project in a remote location with difficult access to resources?</div>
                     <div><button>Edit</button></div>
                     <div>
-                        <details>
+                        <details name="cdq">
                             <summary id="q4a">Details</summary>
                             <form action="" hx-patch="{{ url_for('cost_driver_4') }}" hx-target="#q4a" novalidate>
                                 {{ saform.hidden_tag() }}
@@ -100,7 +100,7 @@
                     <div>6. Is there any hazardous waste present on the site?</div>
                     <div><button>Edit</button></div>
                     <div>
-                        <details>
+                        <details name="cdq">
                             <summary id="q6a">Not Answered</summary>
                             <form action="" hx-patch="{{ url_for('cost_driver_6') }}" hx-target="#q6a" novalidate>
                                 {{ hwform.hidden_tag() }}
@@ -114,7 +114,7 @@
                     <div>7. How would you describe the ground conditions on the site?</div>
                     <div><button>Edit</button></div>
                     <div>
-                        <details>
+                        <details name="cdq">
                             <summary id="q7a">Not Answered</summary>
                             <form action="" hx-patch="{{ url_for('cost_driver_7') }}" hx-target="#q7a" novalidate>
                                 {{ gcform.hidden_tag() }}
@@ -131,7 +131,7 @@
                     <div>9. What type of species are present/anticipated on the site?</div>
                     <div><button>Edit</button></div>
                     <div>
-                        <details>
+                        <details name="cdq">
                             <summary id="q9a">Not Answered</summary>
                             <form action="" hx-patch="{{ url_for('cost_driver_9') }}" hx-target="#q9a" novalidate>
                                 {{ spform.hidden_tag() }}
