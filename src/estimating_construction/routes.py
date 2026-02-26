@@ -20,6 +20,8 @@ from estimating_construction.forms import SiteAccessRadio
 from estimating_construction.forms import HazardousWasteRadio
 from estimating_construction.forms import GroundConditionsRadio
 from estimating_construction.forms import SpeciesForm
+from estimating_construction.forms import AccessConstraintForm
+from estimating_construction.forms import AccessConstraintFormYes
 
 # enqs = []
 options = []
@@ -84,10 +86,11 @@ def index():
 def enquiries(id):
     dform = DesignationsForm()
     ppform = ProjectPriceFormRadio()
-    saform = SiteAccessRadio()
-    hwform = HazardousWasteRadio()
+    saform = SiteAccessRadio(access="No (Easily accessible with no major logistical issues)")
+    hwform = HazardousWasteRadio(waste="No")
     gcform = GroundConditionsRadio()
     spform = SpeciesForm()
+    acfform = AccessConstraintForm()
     try:
         enq = enqs[id]
     except:
@@ -101,6 +104,7 @@ def enquiries(id):
                            hwform=hwform,
                            gcform=gcform,
                            spform=spform,
+                           acfform=acfform,
                            )
 
 
@@ -187,6 +191,34 @@ def cost_driver_answers():
     answer = request.form["designation"]
     return answer
 
+
+@app.route('/api/v1/cd1', methods=['POST',])
+# def cost_driver_questions(id):
+def cost_driver_1():
+    # if form.validate_on_submit():
+        # return 'WIN'
+    # return 'LOSE'
+    # answer = request.form["answer"]
+    # _answers = request.form.getlist("answers")
+    # if _answers:
+    #     answers = '\n'.join(_answers)
+    # else:
+    #     answers = ""
+    # print(answer)
+    # print(answers)
+    # if answer == "Constrained":
+    #     final = answers
+    # else:
+    #     final = "Unconstrained"
+    # return final
+    print(request.form)
+    answer = request.form["answer"]
+    if answer == "Constrained":
+        acfform = AccessConstraintFormYes()
+    else:
+        acfform = AccessConstraintForm()
+    return render_template('cost_driver_questions/cd1b.html', acfform=acfform)
+    
 
 @app.route('/api/v1/cd4', methods=['PATCH',])
 # def cost_driver_questions(id):

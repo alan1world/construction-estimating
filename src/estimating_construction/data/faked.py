@@ -6,7 +6,7 @@ from faker import Faker
 
 # from estimating_construction import app
 # from estimating_construction import routes
-from estimating_construction.data import models
+# from estimating_construction.data import models
 
 
 def setup_fake_data() -> Faker:
@@ -24,6 +24,9 @@ def create_full_record(
     fake = source or setup_fake_data()
     record_counter = number or fake.random_digit_above_two()  # x2 later to test more results
 
+# TODO: Replace Hub() with list
+# TODO: Replace FrameworkCOntract() with list
+# TODO: Remove models.py (for now)
     for idx in range(record_counter):
         record = dict()
 
@@ -34,13 +37,20 @@ def create_full_record(
         record["sop"] = fake.numerify(text="ENV%%%%")
         record["sop_rc"] = fake.random_element(elements=("R", "C"))
         # record["hub"] = "North East"
-        record["hub"] = fake.random_element(elements=models.Hub().hubs_as_list())
+        # record["hub"] = fake.random_element(elements=models.Hub().hubs_as_list())
+        record["hub"] = fake.random_element(elements=("North East",
+                                                      "North West",
+                                                      "South East",
+                                                      "South West",
+                                                      "Midlands",
+                                                      "Eastern",))
         record["type"] = "Target"
         record["gateway"] = "0 - Mandate"
         record["partner"] = "Lot 1"
         # record["contract"] = "PSC"
         record["contract"] = fake.random_element(
-            elements=models.FrameworkContract().contracts_as_list()
+            # elements=models.FrameworkContract().contracts_as_list()
+            elements=("PSC", "ECC")
             )
 
         record["project"] = ''.join((record["sop"], record["sop_rc"]))

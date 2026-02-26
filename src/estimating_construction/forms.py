@@ -130,4 +130,26 @@ class SpeciesForm(FlaskForm):
                                     "Invasive Species (e.g. species that disrupt local ecosystems)",
                                     ])
     submit = SubmitField('Submit')
-    
+
+
+class AccessConstraintForm(FlaskForm):
+    answer = RadioField(choices=["Unconstrained", "Constrained",], default="Unconstrained")
+    answers = MultiCheckboxField(choices=["Physically constrained access",
+                                         "Time limited access (e.g. certain hours accessible)",
+                                         "Third party access (e.g. access through land owned by others, access rights needed)",],
+                                 render_kw={'disabled':''},
+                                 )
+                                 # disabled=True)
+    submit = SubmitField('Submit')
+
+
+class AccessConstraintFormYes(FlaskForm):
+    answer = RadioField(choices=["Unconstrained", "Constrained",], default="Constrained")
+    answers = MultiCheckboxField(choices=["Physically constrained access",
+                                         "Time limited access (e.g. certain hours accessible)",
+                                         "Third party access (e.g. access through land owned by others, access rights needed)",],
+                                 # render_kw={'disabled':''},
+                                 )
+                                 # disabled=True)
+    submit = SubmitField('Submit')
+
