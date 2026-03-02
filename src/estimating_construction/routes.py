@@ -12,6 +12,7 @@ from flask import render_template, redirect, url_for, request
 
 from estimating_construction import app
 from estimating_construction.data import faked  #, models
+from estimating_construction.data import structures
 
 # from estimating_construction.forms import NewFullEnquiryForm
 from estimating_construction.forms import DesignationsForm
@@ -37,6 +38,9 @@ samples = {
         {"key": "C3", "name": "Con 3", "project": "P3"},
         ]
 }
+
+# print(structures.CostDrivers().answers)
+# print(structures.EstimateEnquiry())
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -84,17 +88,17 @@ def index():
 
 @app.route('/enquiries/<int:id>', methods=['GET', 'POST'])
 def enquiries(id):
-    dform = DesignationsForm()
-    ppform = ProjectPriceFormRadio()
-    saform = SiteAccessRadio(access="No (Easily accessible with no major logistical issues)")
-    hwform = HazardousWasteRadio(waste="No")
-    gcform = GroundConditionsRadio()
-    spform = SpeciesForm()
-    acfform = AccessConstraintForm()
     try:
         enq = enqs[id]
     except:
         return redirect(url_for('index'))
+    dform = DesignationsForm()
+    ppform = ProjectPriceFormRadio(enqid=id)
+    saform = SiteAccessRadio(enqid=id, access="No (Easily accessible with no major logistical issues)")
+    hwform = HazardousWasteRadio(enqid=id, waste="No")
+    gcform = GroundConditionsRadio(enqid=id)
+    spform = SpeciesForm(enqid=id)
+    acfform = AccessConstraintForm(enqid=id)
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
@@ -226,17 +230,28 @@ def cost_driver_4():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
+    print(request.form)
     answer = request.form["access"]
     return answer
 
 
-@app.route('/api/v1/cd6', methods=['PATCH',])
+@app.route('/api/v1/cd6', methods=['POST', 'PATCH',])
 # def cost_driver_questions(id):
 def cost_driver_6():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
     answer = request.form["waste"]
+    print(request.form)
+    form = HazardousWasteRadio()
+    print(form.data)
+    if form.validate_on_submit():
+        print(form.waste.data)
+        # idx = int(form.enqid.data)
+        # print(idx)
+        enqs[int(form.enqid.data)]["answers"][6] = form.waste.data
+        print(enqs[int(form.enqid.data)]["answers"])
+        print(all(enqs[int(form.enqid.data)]["answers"]))
     return answer
 
 
@@ -246,6 +261,7 @@ def cost_driver_7():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
+    print(request.form)
     answer = request.form["ground"]
     return answer
 
@@ -256,6 +272,7 @@ def cost_driver_9():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
+    print(request.form)
     answer = '\n'.join(request.form.getlist("species"))
     return answer
 

@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms import EmailField, TelField, SelectField, SelectMultipleField
+from wtforms import HiddenField
 from wtforms.widgets import ListWidget, CheckboxInput
 from wtforms.validators import DataRequired
 
@@ -89,6 +90,7 @@ class EnquiriesModalSubform(FlaskForm):
 
 
 class ProjectPriceFormRadio(FlaskForm):
+    enqid = HiddenField()
     price = RadioField(choices=[
                                 "Standard Project (£1m-£50m)",
                                 "Major Project (£50m+)",
@@ -98,6 +100,7 @@ class ProjectPriceFormRadio(FlaskForm):
 
 
 class SiteAccessRadio(FlaskForm):
+    enqid = HiddenField()
     access = RadioField(choices=[
                                 "Yes (Significant challenges in accessing materials and labour)",
                                 "No (Easily accessible with no major logistical issues)",]
@@ -106,6 +109,7 @@ class SiteAccessRadio(FlaskForm):
 
 
 class HazardousWasteRadio(FlaskForm):
+    enqid = HiddenField()
     waste = RadioField(choices=[
                                 "Yes",
                                 "No",]
@@ -114,6 +118,7 @@ class HazardousWasteRadio(FlaskForm):
 
 
 class GroundConditionsRadio(FlaskForm):
+    enqid = HiddenField()
     ground = RadioField(choices=[
                                 "No issues",
                                 "Minor issues",
@@ -123,6 +128,7 @@ class GroundConditionsRadio(FlaskForm):
 
 
 class SpeciesForm(FlaskForm):
+    enqid = HiddenField()
     species = MultiCheckboxField(choices=[
                                     "Common Species (e.g. native species with no special status)",
                                     "Migratory Species (e.g. species that move through the area seasonally)",
@@ -133,6 +139,7 @@ class SpeciesForm(FlaskForm):
 
 
 class AccessConstraintForm(FlaskForm):
+    enqid = HiddenField()
     answer = RadioField(choices=["Unconstrained", "Constrained",], default="Unconstrained")
     answers = MultiCheckboxField(choices=["Physically constrained access",
                                          "Time limited access (e.g. certain hours accessible)",
@@ -144,6 +151,7 @@ class AccessConstraintForm(FlaskForm):
 
 
 class AccessConstraintFormYes(FlaskForm):
+    enqid = HiddenField()
     answer = RadioField(choices=["Unconstrained", "Constrained",], default="Constrained")
     answers = MultiCheckboxField(choices=["Physically constrained access",
                                          "Time limited access (e.g. certain hours accessible)",

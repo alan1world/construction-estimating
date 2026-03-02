@@ -7,6 +7,7 @@ from faker import Faker
 # from estimating_construction import app
 # from estimating_construction import routes
 # from estimating_construction.data import models
+from estimating_construction.data.structures import EstimateEnquiry
 
 
 def setup_fake_data() -> Faker:
@@ -63,6 +64,7 @@ def create_full_record(
         # enq_link = f"http://127.0.0.1:5000/enquiries/{idx}"
         enq_link = f"/enquiries/{idx}"
         record["link"] = enq_link
+        record["answers"] = [None, None, None, None, None, None, None, None, None, None, None, None]
         
 
         record_list.append(record)
