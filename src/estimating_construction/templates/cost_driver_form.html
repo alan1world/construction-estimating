@@ -29,11 +29,73 @@
           {% endfor %}
       </div>
     </div>
+    <div>4</div>
+    <div>{{ cdform.site_access.label }}</div>
+    <div>
+      {% if cdform.site_access.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.site_access %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+    <div>5</div>
+    <div>{{ cdform.price.label }}</div>
+    <div>
+      {% if cdform.price.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.price %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+    <div>6</div>
+    <div>{{ cdform.waste.label }}</div>
+    <div>
+      {% if cdform.waste.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.waste %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
     <div>7</div>
     <div>{{ cdform.ground.label }}</div>
-    <div><span style="color:green;">&#10003;</span><span style="color:red;">&#10007;</span></div>
+    <div>
+      {% if cdform.ground.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
     <div class="card">
       {% for subfield in cdform.ground %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+    <div>11</div>
+    <div>{{ cdform.milestone.label }}</div>
+    <div>
+      {% if cdform.milestone.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.milestone %}
         <p>{{ subfield }} {{ subfield.label }}</p>
       {% endfor %}
     </div>
