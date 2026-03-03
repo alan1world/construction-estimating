@@ -1,14 +1,15 @@
-                    <div>7. How would you describe the ground conditions on the site?</div>
-                    <div><button>Edit</button></div>
-                    <div>
-                        <details name="cdq">
-                            <summary id="q7a">Not Answered</summary>
-                            <form action="" hx-patch="{{ url_for('cost_driver_7') }}" hx-target="#q7a" hx-trigger="change" novalidate>
-                                {{ gcform.hidden_tag() }}
-                                {% for subfield in gcform.ground %}
-                                    <p>{{ subfield }} {{ subfield.label }}</p>
-                                {% endfor %}
-                                <p>{{ gcform.submit() }}</p>
-                            </form>
-                        </details>
-                    </div>
+<div>7</div>
+<div>How would you describe the ground conditions on the site?</div>
+<div><button>Edit</button></div>
+<div>
+    <details name="cdq">
+        <summary id="q7a">Not Answered</summary>
+        <form action="" hx-patch="{{ url_for('cost_driver_7') }}" hx-target="#q7a" hx-trigger="change" novalidate>
+            {{ gcform.hidden_tag() }}
+            {% for subfield in gcform.ground %}
+                <p>{{ subfield }} {{ subfield.label }}</p>
+            {% endfor %}
+            <p>{{ gcform.submit() }}</p>
+        </form>
+    </details>
+</div>

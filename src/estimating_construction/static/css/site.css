@@ -5,7 +5,7 @@ table.bod {
 .mid {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 80%;
 }
 
 tr.hed {
@@ -27,7 +27,8 @@ tr.hed {
 }
 
 body {
-    background-color: #f4e4bc; /* Old book page color */
+    /* background-color: #f4e4bc; */ /* Old book page color */
+    background-color: white;
     /* font-family: 'Georgia', serif; */
     font-family: 'Optima', 'Futura', sans-serif;
     min-height: 100vh;
@@ -48,7 +49,8 @@ body {
 
 .header {
     grid-area: header;
-    background-color: #8b7355; /* Darker brown for header */
+    /* background-color: #8b7355; */ /* Darker brown for header */
+    background-color: ForestGreen;
     color: #f4e4bc;
     padding: 0.5rem;
     text-align: center;
@@ -57,7 +59,14 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #e6d5b8; /* Slightly darker than background */
+    /* background-color: #e6d5b8; */ /* Slightly darker than background */
+    /* 
+      #71BC78; Mantis Green 
+      #ACE1AF; Celadon
+      #00A693; Persian Green
+      #009150 Spanish Green
+    */
+    background-color: #00915025;
     padding: 1rem;
     border-right: 1px solid #8b7355;
     position: relative;
@@ -120,7 +129,8 @@ body {
 .content {
     grid-area: content;
     padding: 2rem;
-    background-color: #f4e4bc;
+    /* background-color: #f4e4bc; */
+    background-color: white;
     overflow-y: auto; /* Make content section scrollable */
     max-height: calc(100vh - 80px); /* Adjusted for thinner header/footer */
 }
@@ -133,7 +143,8 @@ body {
 
 .main-content {
     flex: 2;
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    background-color: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -141,7 +152,8 @@ body {
 
 .page-nav {
     flex: 1;
-    background-color: #f9f5e3;
+    /* background-color: #f9f5e3; */
+    background-color: white;
     padding: 2rem 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
@@ -180,7 +192,8 @@ body {
 
 .footer {
     grid-area: footer;
-    background-color: #8b7355;
+    /* background-color: #8b7355; */
+    background-color: ForestGreen;
     color: #f4e4bc;
     padding: 0.5rem;
     text-align: center;
@@ -197,11 +210,30 @@ p {
 
 .cost-drivers {
   display: grid;
-  grid-template-columns: [question] 3fr [edit] 1fr [answer] 3fr;
+  row-gap: 30px;
+  grid-template-columns: [qnbr] 1fr [question] 10fr [edit] 1fr [answer] 12fr;
 }
 
 .cost-driver-modal {
   position: fixed;
   z-index: 1000;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  /* 
+    #E1EBEE Marian Blue
+    #A3C1AD Cambridge Blue
+    #AFDBF5 Uranian Blue
+  */
+  background-color: #E1EBEE;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 

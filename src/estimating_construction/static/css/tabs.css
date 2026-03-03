@@ -10,7 +10,8 @@
 
 .tab-button {
     background: none;
-    background-color: #8b7355;
+    /* background-color: #8b7355; */
+    background-color: #71BC78;
     border: none;
     /* color: #94a3b8; */
     color: #ffffff;
@@ -28,7 +29,8 @@
 
 .tab-button.active {
     color: #000000;
-    background-color: #8b7355;
+    /* background-color: #8b7355; */
+    background-color: #71BC78;
     border-bottom-color: #60a5fa;
 }
 

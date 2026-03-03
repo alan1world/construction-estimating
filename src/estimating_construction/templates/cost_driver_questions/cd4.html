@@ -1,16 +1,17 @@
-                    <div>4. Is the project in a remote location with difficult access to resources?</div>
-                    <div><button>Edit</button></div>
-                    <div>
-                        <p>Not answered</p>
-                        <p hidden>Form details here</p>
-                        <details name="cdq">
-                            <summary id="q4a">Details</summary>
-                            <form action="" hx-patch="{{ url_for('cost_driver_4') }}" hx-target="#q4a" hx-trigger="change" novalidate>
-                                {{ saform.hidden_tag() }}
-                                {% for subfield in saform.access %}
-                                    <p>{{ subfield }} {{ subfield.label }}</p>
-                                {% endfor %}
-                                <p>{{ saform.submit() }}</p>
-                            </form>
-                        </details>
-                    </div>
+<div>4</div>
+<div>Is the project in a remote location with difficult access to resources?</div>
+<div><button>Edit</button></div>
+<div class="card">
+    <p>Not answered</p>
+    <p hidden>Form details here</p>
+    <details name="cdq">
+        <summary id="q4a">Details</summary>
+        <form action="" hx-patch="{{ url_for('cost_driver_4') }}" hx-target="#q4a" hx-trigger="change" novalidate>
+            {{ saform.hidden_tag() }}
+            {% for subfield in saform.access %}
+                <p>{{ subfield }} {{ subfield.label }}</p>
+            {% endfor %}
+            <p>{{ saform.submit() }}</p>
+        </form>
+    </details>
+</div>
