@@ -237,3 +237,17 @@ p {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.subcard {
+  /* Add shadows to create the "card" effect */
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  /* transition: 0.3s; */
+  /* border-radius: 5px; */ /* 5px rounded corners */
+  /* 
+    #E1EBEE Marian Blue
+    #A3C1AD Cambridge Blue
+    #AFDBF5 Uranian Blue
+  */
+  background-color: #AFDBF5;
+  padding: 0.5em 0 0.5em 1.5em;
+}
+

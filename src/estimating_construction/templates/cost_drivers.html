@@ -1,16 +1,29 @@
-                    <div></div>
-                    <div>Question</div>
-                    <div></div>
-                    <div>Answer</div>
-                    {% include 'cost_driver_questions/cd1.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd2.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd3.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd4.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd5.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd6.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd7.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd8.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd9.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd10.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd11.html' ignore missing %}
-                    {% include 'cost_driver_questions/cd12.html' ignore missing %}
+<br>
+<!-- <form action="" hx-patch="{{ url_for('cost_driver_4') }}" hx-target="#q4a" hx-trigger="change" novalidate> -->
+<!-- <form action="" method="post" hx-target="#q5a" hx-post="{{ url_for('cost_driver_answers') }}" hx-swap="innerHTML" novalidate> -->
+<form action="" hx-post="{{ url_for('cost_driver_answers') }}" hx-trigger="change" hx-target="#cda" novalidate>
+    {{ cdform.hidden_tag() }}
+    <div id="cda" class=cost-drivers>
+        {% include 'cost_driver_form.html' %}
+    </div>
+</form>
+<br>
+<br>
+<div class=cost-drivers>
+<div></div>
+<div>Question</div>
+<div></div>
+<div>Answer</div>
+{% include 'cost_driver_questions/cd1.html' ignore missing %}
+{% include 'cost_driver_questions/cd2.html' ignore missing %}
+{% include 'cost_driver_questions/cd3.html' ignore missing %}
+{% include 'cost_driver_questions/cd4.html' ignore missing %}
+{% include 'cost_driver_questions/cd5.html' ignore missing %}
+{% include 'cost_driver_questions/cd6.html' ignore missing %}
+{% include 'cost_driver_questions/cd7.html' ignore missing %}
+{% include 'cost_driver_questions/cd8.html' ignore missing %}
+{% include 'cost_driver_questions/cd9.html' ignore missing %}
+{% include 'cost_driver_questions/cd10.html' ignore missing %}
+{% include 'cost_driver_questions/cd11.html' ignore missing %}
+{% include 'cost_driver_questions/cd12.html' ignore missing %}
+</div>

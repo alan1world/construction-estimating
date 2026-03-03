@@ -23,6 +23,7 @@ from estimating_construction.forms import GroundConditionsRadio
 from estimating_construction.forms import SpeciesForm
 from estimating_construction.forms import AccessConstraintForm
 from estimating_construction.forms import AccessConstraintFormYes
+from estimating_construction.forms import CostDriversForm
 
 # enqs = []
 options = []
@@ -99,6 +100,7 @@ def enquiries(id):
     gcform = GroundConditionsRadio(enqid=id)
     spform = SpeciesForm(enqid=id)
     acfform = AccessConstraintForm(enqid=id)
+    cdform = CostDriversForm(enqid=id)
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
@@ -109,6 +111,7 @@ def enquiries(id):
                            gcform=gcform,
                            spform=spform,
                            acfform=acfform,
+                           cdform=cdform,
                            )
 
 
@@ -183,7 +186,7 @@ def fd6dr():
 # def cost_driver_questions(id):
 def cost_driver_questions():
     form = ProjectPriceFormRadio()
-    return render_template('cost_driver_form.html', form=form)
+    return render_template('cost_driver_form.html', cdform=form)
 
 
 @app.route('/api/v1/a', methods=['PUT', 'POST',])
@@ -192,8 +195,11 @@ def cost_driver_answers():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
-    answer = request.form["designation"]
-    return answer
+    # answer = request.form["designation"]
+    # return answer
+    cdform = CostDriversForm()
+    # print(cdform.data)
+    return render_template('cost_driver_form.html', cdform=cdform)
 
 
 @app.route('/api/v1/cd1', methods=['POST',])

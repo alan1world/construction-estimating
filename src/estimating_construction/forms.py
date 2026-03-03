@@ -161,3 +161,19 @@ class AccessConstraintFormYes(FlaskForm):
                                  # disabled=True)
     submit = SubmitField('Submit')
 
+
+class CostDriversForm(FlaskForm):
+    enqid = HiddenField()
+    # access_state = 
+    access = RadioField(choices=["Unconstrained", "Constrained",], label="What is the level of access to the site?")
+    access_detail = MultiCheckboxField(choices=["Physically constrained access",
+                                                "Time limited access (e.g. certain hours accessible)",
+                                                "Third party access (e.g. access through land owned by others, access rights needed)",],
+                                      )
+    ground = RadioField(choices=[
+                                "No issues",
+                                "Minor issues",
+                                "Severe issues",],
+                        label="How would you describe the ground conditions on the site?",
+                        )
+
