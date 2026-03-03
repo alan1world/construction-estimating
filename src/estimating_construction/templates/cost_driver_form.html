@@ -11,7 +11,13 @@
     <!-- {{ cdform.hidden_tag() }} -->
     <div>1</div>
     <div>{{ cdform.access.label }}</div>
-    <div><span style="color:green;">&#10003;</span><span style="color:red;">&#10007;</span></div>
+    <div>
+      {% if cdform.access.data and (cdform.access.data != "Constrained" or cdform.access_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
     <div class="card">
       {% for subfield in cdform.access %}
         <p>{{ subfield }} {{ subfield.label }}</p>
