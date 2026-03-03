@@ -16,9 +16,10 @@
       {% for subfield in cdform.access %}
         <p>{{ subfield }} {{ subfield.label }}</p>
       {% endfor %}
-      <div class="subcard"> <!-- TODO: Needs CSS -->
+      {% set access_constrained = cdform.access.data == "Constrained" %}
+      <div class="subcard{% if not access_constrained %} subcard--disabled{% endif %}">
           {% for subfield in cdform.access_detail %}
-              <p>{{ subfield }} {{ subfield.label }}</p>
+              <p>{{ subfield(disabled=not access_constrained) }} {{ subfield.label }}</p>
           {% endfor %}
       </div>
     </div>

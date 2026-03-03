@@ -26,7 +26,7 @@ from estimating_construction.forms import AccessConstraintFormYes
 from estimating_construction.forms import CostDriversForm
 
 # enqs = []
-options = []
+# options = []
 
 # fake_date = faked.create_full_record()
 enqs = faked.create_full_record()
@@ -198,7 +198,7 @@ def cost_driver_answers():
     # answer = request.form["designation"]
     # return answer
     cdform = CostDriversForm()
-    # print(cdform.data)
+    print(cdform.data)
     return render_template('cost_driver_form.html', cdform=cdform)
 
 
