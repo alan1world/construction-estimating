@@ -192,7 +192,7 @@ def fd6dr():
 #     return render_template('cost_driver_form.html', cdform=form)
 
 
-@app.route('/api/v1/a', methods=['PUT', 'POST',])
+@app.route('/api/v1/a', methods=['PUT', 'POST', 'PATCH',])
 # def cost_driver_questions(id):
 def cost_driver_answers():
     # if form.validate_on_submit():
@@ -200,6 +200,8 @@ def cost_driver_answers():
     # return 'LOSE'
     # answer = request.form["designation"]
     # return answer
+    # print(dir(request))
+    # print(vars(request))
     cdform = CostDriversForm()
     print(cdform.data)
     idx = cdform.enqid.data
@@ -246,7 +248,7 @@ def cost_driver_answers():
         cdn.missing_utilities = cdform.missing_utilities.data
 
     # TODO: Submit button for Ready -> Final
-    if cdn.all_answered:
+    if cdn.all_answered1:
         cdn.status = "Ready"
 
     enq.cost_drivers[cdn.version] = cdn

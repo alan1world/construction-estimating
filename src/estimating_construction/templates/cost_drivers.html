@@ -1,4 +1,7 @@
-<form action="" hx-post="{{ url_for('cost_driver_answers') }}" hx-trigger="change" hx-target="#cda" novalidate>
+<form action="" 
+    hx-post="{{ url_for('cost_driver_answers') }}" 
+    hx-trigger="change, submit" 
+    hx-target="#cda" novalidate>
     {{ cdform.hidden_tag() }}
     <div id="cda" class=cost-drivers>
         {% include 'cost_driver_form.html' %}

@@ -77,6 +77,7 @@ class NewEnquiryForm(FlaskForm):
 
 class CostDriversForm(FlaskForm):
     enqid = HiddenField()
+    submit = SubmitField('Submit')
 
     access = RadioField(
         choices=["Unconstrained", "Constrained"],
