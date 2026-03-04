@@ -13,6 +13,7 @@ from flask import render_template, redirect, url_for, request
 from estimating_construction import app
 from estimating_construction.data import faked  #, models
 from estimating_construction.data import structures
+from estimating_construction.data.structures import CostDrivers
 
 # from estimating_construction.forms import NewFullEnquiryForm
 # from estimating_construction.forms import DesignationsForm
@@ -203,8 +204,54 @@ def cost_driver_answers():
     print(cdform.data)
     idx = cdform.enqid.data
     enq = enqs[int(idx)]
-    enq.cost_drivers.append(cdform.data)
+    
+    cdn = enq.cost_drivers[-1]
+    if cdn.status == "Final":
+        _version = cdn.version + 1
+        cdn = CostDrivers(version=_version)
+    
+    if cdform.access.data == "Constrained":
+        cdn.access = cdform.access_detail.data
+    else:
+        cdn.access = cdform.access.data
+
+    if cdform.designations.data == "Designations:":
+        cdn.designations = cdform.designations_detail.data
+    else:
+        cdn.designations = cdform.designations.data
+
+    cdn.site_compounds = cdform.site_compounds.data
+    cdn.site_access = cdform.site_access.data
+    cdn.price = cdform.price.data
+    cdn.waste = cdform.waste.data
+    cdn.ground = cdform.ground.data
+
+    if cdform.existing_structures.data == "Requirements:":
+        cdn.existing_structures = cdform.existing_structures_detail.data
+    else:
+        cdn.existing_structures = cdform.existing_structures.data
+
+    cdn.species = cdform.species.data
+
+    if cdform.adverse_influence.data == "Yes":
+        cdn.adverse_influence = cdform.adverse_influence_detail.data
+    else:
+        cdn.adverse_influence = cdform.adverse_influence.data
+    
+    cdn.milestone = cdform.milestone.data
+    
+    if cdform.missing_utilities.data == "Missing:":
+        cdn.missing_utilities = cdform.missing_utilities_detail.data
+    else:
+        cdn.missing_utilities = cdform.missing_utilities.data
+
+    # TODO: Submit button for Ready -> Final
+    if cdn.all_answered:
+        cdn.status = "Ready"
+
+    enq.cost_drivers[cdn.version] = cdn
     print(enq.cost_drivers)
+    
     return render_template('cost_driver_form.html', cdform=cdform)
 
 
