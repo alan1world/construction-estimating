@@ -15,14 +15,14 @@ from estimating_construction.data import faked  #, models
 from estimating_construction.data import structures
 
 # from estimating_construction.forms import NewFullEnquiryForm
-from estimating_construction.forms import DesignationsForm
-from estimating_construction.forms import ProjectPriceFormRadio
-from estimating_construction.forms import SiteAccessRadio
-from estimating_construction.forms import HazardousWasteRadio
-from estimating_construction.forms import GroundConditionsRadio
-from estimating_construction.forms import SpeciesForm
-from estimating_construction.forms import AccessConstraintForm
-from estimating_construction.forms import AccessConstraintFormYes
+# from estimating_construction.forms import DesignationsForm
+# from estimating_construction.forms import ProjectPriceFormRadio
+# from estimating_construction.forms import SiteAccessRadio
+# from estimating_construction.forms import HazardousWasteRadio
+# from estimating_construction.forms import GroundConditionsRadio
+# from estimating_construction.forms import SpeciesForm
+# from estimating_construction.forms import AccessConstraintForm
+# from estimating_construction.forms import AccessConstraintFormYes
 from estimating_construction.forms import CostDriversForm
 
 # enqs = []
@@ -30,6 +30,7 @@ from estimating_construction.forms import CostDriversForm
 
 # fake_date = faked.create_full_record()
 enqs = faked.create_full_record()
+print(faked.create_estimate_enquiry())
 
 samples = {
     "projects": {"P1": "Test 1", "P2": "Test 2", "P3": "Test 3"},
@@ -93,24 +94,24 @@ def enquiries(id):
         enq = enqs[id]
     except:
         return redirect(url_for('index'))
-    dform = DesignationsForm()
-    ppform = ProjectPriceFormRadio(enqid=id)
-    saform = SiteAccessRadio(enqid=id, access="No (Easily accessible with no major logistical issues)")
-    hwform = HazardousWasteRadio(enqid=id, waste="No")
-    gcform = GroundConditionsRadio(enqid=id)
-    spform = SpeciesForm(enqid=id)
-    acfform = AccessConstraintForm(enqid=id)
+    # dform = DesignationsForm()
+    # ppform = ProjectPriceFormRadio(enqid=id)
+    # saform = SiteAccessRadio(enqid=id, access="No (Easily accessible with no major logistical issues)")
+    # hwform = HazardousWasteRadio(enqid=id, waste="No")
+    # gcform = GroundConditionsRadio(enqid=id)
+    # spform = SpeciesForm(enqid=id)
+    # acfform = AccessConstraintForm(enqid=id)
     cdform = CostDriversForm(enqid=id)
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
-                           dform=dform,
-                           ppform=ppform,
-                           saform=saform,
-                           hwform=hwform,
-                           gcform=gcform,
-                           spform=spform,
-                           acfform=acfform,
+                        #    dform=dform,
+                        #    ppform=ppform,
+                        #    saform=saform,
+                        #    hwform=hwform,
+                        #    gcform=gcform,
+                        #    spform=spform,
+                        #    acfform=acfform,
                            cdform=cdform,
                            )
 
@@ -181,12 +182,12 @@ def fd6dr():
 #     pass
 
 
-# @app.route('/api/v1/<int:id>', methods=['PUT', 'POST',])
-@app.route('/api/v1/q', methods=['PUT', 'POST',])
-# def cost_driver_questions(id):
-def cost_driver_questions():
-    form = ProjectPriceFormRadio()
-    return render_template('cost_driver_form.html', cdform=form)
+# # @app.route('/api/v1/<int:id>', methods=['PUT', 'POST',])
+# @app.route('/api/v1/q', methods=['PUT', 'POST',])
+# # def cost_driver_questions(id):
+# def cost_driver_questions():
+#     form = ProjectPriceFormRadio()
+#     return render_template('cost_driver_form.html', cdform=form)
 
 
 @app.route('/api/v1/a', methods=['PUT', 'POST',])
@@ -202,83 +203,83 @@ def cost_driver_answers():
     return render_template('cost_driver_form.html', cdform=cdform)
 
 
-@app.route('/api/v1/cd1', methods=['POST',])
-# def cost_driver_questions(id):
-def cost_driver_1():
-    # if form.validate_on_submit():
-        # return 'WIN'
-    # return 'LOSE'
-    # answer = request.form["answer"]
-    # _answers = request.form.getlist("answers")
-    # if _answers:
-    #     answers = '\n'.join(_answers)
-    # else:
-    #     answers = ""
-    # print(answer)
-    # print(answers)
-    # if answer == "Constrained":
-    #     final = answers
-    # else:
-    #     final = "Unconstrained"
-    # return final
-    print(request.form)
-    answer = request.form["answer"]
-    if answer == "Constrained":
-        acfform = AccessConstraintFormYes()
-    else:
-        acfform = AccessConstraintForm()
-    return render_template('cost_driver_questions/cd1b.html', acfform=acfform)
+# @app.route('/api/v1/cd1', methods=['POST',])
+# # def cost_driver_questions(id):
+# def cost_driver_1():
+#     # if form.validate_on_submit():
+#         # return 'WIN'
+#     # return 'LOSE'
+#     # answer = request.form["answer"]
+#     # _answers = request.form.getlist("answers")
+#     # if _answers:
+#     #     answers = '\n'.join(_answers)
+#     # else:
+#     #     answers = ""
+#     # print(answer)
+#     # print(answers)
+#     # if answer == "Constrained":
+#     #     final = answers
+#     # else:
+#     #     final = "Unconstrained"
+#     # return final
+#     print(request.form)
+#     answer = request.form["answer"]
+#     if answer == "Constrained":
+#         acfform = AccessConstraintFormYes()
+#     else:
+#         acfform = AccessConstraintForm()
+#     return render_template('cost_driver_questions/cd1b.html', acfform=acfform)
     
 
-@app.route('/api/v1/cd4', methods=['PATCH',])
-# def cost_driver_questions(id):
-def cost_driver_4():
-    # if form.validate_on_submit():
-        # return 'WIN'
-    # return 'LOSE'
-    print(request.form)
-    answer = request.form["access"]
-    return answer
+# @app.route('/api/v1/cd4', methods=['PATCH',])
+# # def cost_driver_questions(id):
+# def cost_driver_4():
+#     # if form.validate_on_submit():
+#         # return 'WIN'
+#     # return 'LOSE'
+#     print(request.form)
+#     answer = request.form["access"]
+#     return answer
 
 
-@app.route('/api/v1/cd6', methods=['POST', 'PATCH',])
-# def cost_driver_questions(id):
-def cost_driver_6():
-    # if form.validate_on_submit():
-        # return 'WIN'
-    # return 'LOSE'
-    answer = request.form["waste"]
-    print(request.form)
-    form = HazardousWasteRadio()
-    print(form.data)
-    if form.validate_on_submit():
-        print(form.waste.data)
-        # idx = int(form.enqid.data)
-        # print(idx)
-        enqs[int(form.enqid.data)]["answers"][6] = form.waste.data
-        print(enqs[int(form.enqid.data)]["answers"])
-        print(all(enqs[int(form.enqid.data)]["answers"]))
-    return answer
+# @app.route('/api/v1/cd6', methods=['POST', 'PATCH',])
+# # def cost_driver_questions(id):
+# def cost_driver_6():
+#     # if form.validate_on_submit():
+#         # return 'WIN'
+#     # return 'LOSE'
+#     answer = request.form["waste"]
+#     print(request.form)
+#     form = HazardousWasteRadio()
+#     print(form.data)
+#     if form.validate_on_submit():
+#         print(form.waste.data)
+#         # idx = int(form.enqid.data)
+#         # print(idx)
+#         enqs[int(form.enqid.data)]["answers"][6] = form.waste.data
+#         print(enqs[int(form.enqid.data)]["answers"])
+#         print(all(enqs[int(form.enqid.data)]["answers"]))
+#     return answer
 
 
-@app.route('/api/v1/cd7', methods=['PATCH',])
-# def cost_driver_questions(id):
-def cost_driver_7():
-    # if form.validate_on_submit():
-        # return 'WIN'
-    # return 'LOSE'
-    print(request.form)
-    answer = request.form["ground"]
-    return answer
+# @app.route('/api/v1/cd7', methods=['PATCH',])
+# # def cost_driver_questions(id):
+# def cost_driver_7():
+#     # if form.validate_on_submit():
+#         # return 'WIN'
+#     # return 'LOSE'
+#     print(request.form)
+#     answer = request.form["ground"]
+#     return answer
 
 
-@app.route('/api/v1/cd9', methods=['PATCH',])
-# def cost_driver_questions(id):
-def cost_driver_9():
-    # if form.validate_on_submit():
-        # return 'WIN'
-    # return 'LOSE'
-    print(request.form)
-    answer = '\n'.join(request.form.getlist("species"))
-    return answer
+# @app.route('/api/v1/cd9', methods=['PATCH',])
+# # def cost_driver_questions(id):
+# def cost_driver_9():
+#     # if form.validate_on_submit():
+#         # return 'WIN'
+#     # return 'LOSE'
+#     print(request.form)
+#     answer = '\n'.join(request.form.getlist("species"))
+#     return answer
 

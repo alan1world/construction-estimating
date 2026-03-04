@@ -7,11 +7,83 @@ from faker import Faker
 # from estimating_construction import app
 # from estimating_construction import routes
 # from estimating_construction.data import models
+from estimating_construction.data.structures import UserRecord
+from estimating_construction.data.structures import ProjectRecord
 from estimating_construction.data.structures import EstimateEnquiry
 
 
 def setup_fake_data() -> Faker:
     return Faker(["en-GB",])
+
+def create_user_record(
+                    source: Faker | None = None, 
+                    number: int | None = None
+                    ) -> list[UserRecord]:
+    
+    record_list = []
+
+    fake = source or setup_fake_data()
+    record_counter = number or fake.random_digit_above_two()
+
+    for idx in range(record_counter):
+        user = UserRecord(
+            fullname=fake.name(),
+            company=fake.company(),
+            email=fake.ascii_safe_email(),
+            phone_number=fake.phone_number()
+        )
+        record_list.append(user)
+
+    return record_list
+
+def create_project_record(
+                    source: Faker | None = None, 
+                    number: int | None = None
+                    ) -> list[ProjectRecord]:
+    record_list = []
+    fake = source or setup_fake_data()
+    record_counter = number or fake.random_digit_above_two()
+
+    for idx in range(record_counter):
+        project = ProjectRecord(
+            sop_rc=fake.random_element(elements=("R", "C")),
+            sop=fake.numerify(text="ENV%%%%"),
+            contract=fake.random_element(elements=("PSC", "ECC")),
+            hub=fake.random_element(elements=("North East",
+                                              "North West",
+                                              "South East",
+                                              "South West",
+                                              "Midlands",
+                                              "Eastern",)),
+            contract_type="Target",
+            gateway="0 - Mandate",
+            partner="Lot 1",
+        )
+        record_list.append(project)
+
+    return record_list
+
+def create_estimate_enquiry(
+                    source: Faker | None = None, 
+                    number: int | None = None
+                    ) -> list[EstimateEnquiry]:
+    
+    fake = source or setup_fake_data()
+    record_counter = number or fake.random_digit_above_two()
+    
+    record_list: list[EstimateEnquiry] = []
+    user_list: list[UserRecord] = create_user_record(source=fake)
+    project_list: list[ProjectRecord] = create_project_record(source=fake)
+    
+    for idx in range(record_counter):
+       enquiry = EstimateEnquiry(
+            person=fake.random_element(elements=user_list),
+            project=fake.random_element(elements=project_list),
+            enq=idx,
+        )
+        record_list.append(enquiry)
+
+    return record_list
 
 # @app.app_context  # try moving the link to html so it only needs the int?
 def create_full_record(
