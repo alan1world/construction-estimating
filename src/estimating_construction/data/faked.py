@@ -45,7 +45,7 @@ def create_project_record(
     record_counter = number or fake.random_digit_above_two()
 
     for idx in range(record_counter):
-        project = ProjectRecord(
+        _project = ProjectRecord(
             sop_rc=fake.random_element(elements=("R", "C")),
             sop=fake.numerify(text="ENV%%%%"),
             contract=fake.random_element(elements=("PSC", "ECC")),
@@ -56,10 +56,9 @@ def create_project_record(
                                               "Midlands",
                                               "Eastern",)),
             contract_type="Target",
-            gateway="0 - Mandate",
-            partner="Lot 1",
+            gateway="Lot 1",
         )
-        record_list.append(project)
+        record_list.append(_project)
 
     return record_list
 
@@ -76,9 +75,9 @@ def create_estimate_enquiry(
     project_list: list[ProjectRecord] = create_project_record(source=fake)
     
     for idx in range(record_counter):
-       enquiry = EstimateEnquiry(
-            person=fake.random_element(elements=user_list),
-            project=fake.random_element(elements=project_list),
+        enquiry = EstimateEnquiry(
+            _person=fake.random_element(elements=user_list),
+            _project=fake.random_element(elements=project_list),
             enq=idx,
         )
         record_list.append(enquiry)

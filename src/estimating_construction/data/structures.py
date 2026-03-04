@@ -114,9 +114,9 @@ class EstimateEnquiry:
     Cost Drivers fields:
         TBC
     '''
-    person: UserRecord
-    project: ProjectRecord
     enq: int
+    _person: UserRecord
+    _project: ProjectRecord
     cost_drivers: list[CostDrivers] = field(default_factory=list)
 
     def __post_init__(self):
@@ -128,48 +128,48 @@ class EstimateEnquiry:
     
     @property
     def fullname(self) -> str:
-        return self.person.fullname
+        return self._person.fullname
     
     @property
     def company(self) -> str:
-        return self.person.company
+        return self._person.company
     
     @property
     def email(self) -> str:
-        return self.person.email
+        return self._person.email
     
     @property
     def phone_number(self) -> str:
-        return self.person.phone_number
+        return self._person.phone_number
     
     @property
     def sop(self) -> str:
-        return self.project.sop
+        return self._project.sop
     
     @property
     def sop_rc(self) -> str:
-        return self.project.sop_rc    
+        return self._project.sop_rc    
     
     @property
     def contract(self) -> str:
-        return self.project.contract
+        return self._project.contract
     
     @property
     def hub(self) -> str:
-        return self.project.hub
+        return self._project.hub
     
     @property
     def contract_type(self) -> str:
-        return self.project.contract_type
+        return self._project.contract_type
     
     @property
     def gateway(self) -> str:
-        return self.project.gateway
+        return self._project.gateway
     
     @property
     def partner(self) -> str:
-        return self.project.partner
+        return self._project.partner
     
     @property
     def project(self) -> str:
-        return self.project.project
+        return self._project.project

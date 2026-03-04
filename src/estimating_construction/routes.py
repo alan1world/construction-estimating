@@ -29,8 +29,9 @@ from estimating_construction.forms import CostDriversForm
 # options = []
 
 # fake_date = faked.create_full_record()
-enqs = faked.create_full_record()
-print(faked.create_estimate_enquiry())
+# enqs = faked.create_full_record()
+# print(faked.create_estimate_enquiry())
+enqs = faked.create_estimate_enquiry()
 
 samples = {
     "projects": {"P1": "Test 1", "P2": "Test 2", "P3": "Test 3"},
@@ -200,6 +201,10 @@ def cost_driver_answers():
     # return answer
     cdform = CostDriversForm()
     print(cdform.data)
+    idx = cdform.enqid.data
+    enq = enqs[int(idx)]
+    enq.cost_drivers.append(cdform.data)
+    print(enq.cost_drivers)
     return render_template('cost_driver_form.html', cdform=cdform)
 
 
