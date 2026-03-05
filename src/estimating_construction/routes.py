@@ -33,6 +33,21 @@ from estimating_construction.forms import CostDriversForm
 # enqs = faked.create_full_record()
 # print(faked.create_estimate_enquiry())
 enqs = faked.create_estimate_enquiry()
+_cdn = enqs[0].cost_drivers[0]
+_cdn.status = "Final"
+_cdn.access = "Unconstrained"
+_cdn.designations = "No designation"
+_cdn.site_compounds = ["No compound (welfare only)",]
+_cdn.site_access = "No (Easily accessible with no major logistical issues)"
+_cdn.price = "Standard Project (£1m-£50m)"
+_cdn.waste = "No"
+_cdn.ground = "No issues"
+_cdn.existing_structures = "No requirement"
+_cdn.species = ["Common Species (e.g. native species with no special status)",]
+_cdn.adverse_influence = "No"
+_cdn.milestone = "Completion date set by programme logic (no constraints)"
+_cdn.missing_utilities = "None"
+enqs[0].cost_drivers[0] = _cdn
 
 samples = {
     "projects": {"P1": "Test 1", "P2": "Test 2", "P3": "Test 3"},
@@ -96,25 +111,28 @@ def enquiries(id):
         enq = enqs[id]
     except:
         return redirect(url_for('index'))
-    # dform = DesignationsForm()
-    # ppform = ProjectPriceFormRadio(enqid=id)
-    # saform = SiteAccessRadio(enqid=id, access="No (Easily accessible with no major logistical issues)")
-    # hwform = HazardousWasteRadio(enqid=id, waste="No")
-    # gcform = GroundConditionsRadio(enqid=id)
-    # spform = SpeciesForm(enqid=id)
-    # acfform = AccessConstraintForm(enqid=id)
-    cdform = CostDriversForm(enqid=id)
+
+    cdn = enq.cost_drivers[-1]
+    print(cdn)
+    cdform = CostDriversForm(enqid=id,
+                             access=cdn.access,
+                             designations=cdn.designations,
+                             site_compounds=cdn.site_compounds,
+                             site_access=cdn.site_access,
+                             price=cdn.price,
+                             waste=cdn.waste,
+                             ground=cdn.ground,
+                             existing_structures=cdn.existing_structures,
+                             species=cdn.species,
+                             adverse_influence=cdn.adverse_influence,
+                             milestone=cdn.milestone,
+                             missing_utilities=cdn.missing_utilities,
+                             )
+    print(cdform.data)
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
-                           cdn=enq.cost_drivers[-1],
-                        #    dform=dform,
-                        #    ppform=ppform,
-                        #    saform=saform,
-                        #    hwform=hwform,
-                        #    gcform=gcform,
-                        #    spform=spform,
-                        #    acfform=acfform,
+                           cdn=cdn,
                            cdform=cdform,
                            )
 
@@ -213,7 +231,7 @@ def cost_driver_answers():
         cdn.status = "Final"
         new_cdn = CostDrivers(version=cdn.version + 1)
         enq.cost_drivers.append(new_cdn)
-        cdn = new_cdn
+        cdn = enq.cost_drivers[-1]
 
     if cdform.access.data == "Constrained":
         cdn.access = cdform.access_detail.data

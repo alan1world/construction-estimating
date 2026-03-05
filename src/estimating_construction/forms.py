@@ -118,8 +118,8 @@ class CostDriversForm(FlaskForm):
 
     site_access = RadioField(
         choices=[
-            "Yes (Significant challenges in accessing materials and labour)",
             "No (Easily accessible with no major logistical issues)",
+            "Yes (Significant challenges in accessing materials and labour)",
         ],
         label="Is the project in a remote location with difficult access to resources?",
     )
@@ -134,7 +134,7 @@ class CostDriversForm(FlaskForm):
     )
 
     waste = RadioField(
-        choices=["Yes", "No"],
+        choices=["No", "Yes",],
         label="Is there any hazardous waste present on the site?",
     )
 
