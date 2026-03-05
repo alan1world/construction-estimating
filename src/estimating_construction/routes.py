@@ -107,6 +107,7 @@ def enquiries(id):
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
+                           cdn=enq.cost_drivers[-1],
                         #    dform=dform,
                         #    ppform=ppform,
                         #    saform=saform,
@@ -208,9 +209,10 @@ def cost_driver_answers():
     enq = enqs[int(idx)]
     
     cdn = enq.cost_drivers[-1]
-    if cdn.status == "Final":
+    if cdform.submit.data:
         _version = cdn.version + 1
         cdn = CostDrivers(version=_version)
+        enq.cost_drivers.append(cdn)
     
     if cdform.access.data == "Constrained":
         cdn.access = cdform.access_detail.data
@@ -247,14 +249,13 @@ def cost_driver_answers():
     else:
         cdn.missing_utilities = cdform.missing_utilities.data
 
-    # TODO: Submit button for Ready -> Final
     if cdn.all_answered1:
         cdn.status = "Ready"
 
     enq.cost_drivers[cdn.version] = cdn
     print(enq.cost_drivers)
     
-    return render_template('cost_driver_form.html', cdform=cdform)
+    return render_template('cost_driver_form.html', cdform=cdform, cdn=cdn)
 
 
 # @app.route('/api/v1/cd1', methods=['POST',])
