@@ -210,10 +210,11 @@ def cost_driver_answers():
     
     cdn = enq.cost_drivers[-1]
     if cdform.submit.data:
-        _version = cdn.version + 1
-        cdn = CostDrivers(version=_version)
-        enq.cost_drivers.append(cdn)
-    
+        cdn.status = "Final"
+        new_cdn = CostDrivers(version=cdn.version + 1)
+        enq.cost_drivers.append(new_cdn)
+        cdn = new_cdn
+
     if cdform.access.data == "Constrained":
         cdn.access = cdform.access_detail.data
     else:
