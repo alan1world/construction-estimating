@@ -1,227 +1,257 @@
-<div></div><div></div><div></div>
-<div>{{ cdform.submit(disabled=(cdn.status != "Ready")) }}</div>
+<form id="cdsummary" action="{{ url_for('cost_driver_status') }}" method="post" novalidate>
+<!-- <form id="cdsummary" action="" hx-post="{{ url_for('cost_driver_status') }}" hx-trigger="submit" hx-target="#cda" novalidate> -->
+  {{ cdstatusform.hidden_tag() }}
+  <table>
+      <thead>
+          <tr>
+              <td>Version Nbr</td>
+              <td>Status</td>
+              <td>Action</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>{{ cdn.version }}</td>
+              <td>{{ cdn.status }}</td>
+              <td>{{ cdstatusform.submit(disabled=(cdn.status != "Ready")) }}</td>
+          </tr>
+      </tbody>
+  </table>
+</form>
 
-<!-- 1. Access / Access Detail -->
-<div>1</div>
-<div>{{ cdform.access.label }}</div>
-<div>
-  {% if cdform.access.data and (cdform.access.data != "Constrained" or cdform.access_detail.data) %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.access %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-  {% set access_constrained = cdform.access.data == "Constrained" %}
-  <div class="subcard{% if not access_constrained %} subcard--disabled{% endif %}">
-    {% for subfield in cdform.access_detail %}
-      <p>{{ subfield(disabled=not access_constrained) }} {{ subfield.label }}</p>
-    {% endfor %}
+<br>
+<hr>
+<br>
+
+
+<form id="cdquestions" action="" hx-post="{{ url_for('cost_driver_answers') }}" hx-trigger="change" hx-target="#cda" novalidate>
+  <!-- <form id="cdquestions" action="" hx-post="{{ url_for('cost_driver_answers') }}" hx-trigger="change" HX-Refresh:true novalidate> -->
+  <!-- <form id="cdquestions" action="" hx-post="{{ url_for('cost_driver_answers') }}" hx-trigger="change" novalidate> -->
+{{ cdform.hidden_tag() }}
+  <div class=cost-drivers>
+    <!-- 1. Access / Access Detail -->
+    <div>1</div>
+    <div>{{ cdform.access.label }}</div>
+    <div>
+      {% if cdform.access.data and (cdform.access.data != "Constrained" or cdform.access_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.access %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+      {% set access_constrained = cdform.access.data == "Constrained" %}
+      <div class="subcard{% if not access_constrained %} subcard--disabled{% endif %}">
+        {% for subfield in cdform.access_detail %}
+          <p>{{ subfield(disabled=not access_constrained) }} {{ subfield.label }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 2. Designations / Designations Detail -->
+    <div>2</div>
+    <div>{{ cdform.designations.label }}</div>
+    <div>
+      {% if cdform.designations.data and (cdform.designations.data != "Designations:" or cdform.designations_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.designations %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+      {% set designations_selected = cdform.designations.data == "Designations:" %}
+      <div class="subcard{% if not designations_selected %} subcard--disabled{% endif %}">
+        {% for subfield in cdform.designations_detail %}
+          <p>{{ subfield }} {{ subfield.label }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 3. Site Compounds -->
+    <div>3</div>
+    <div>{{ cdform.site_compounds.label }}</div>
+    <div>
+      {% if cdform.site_compounds.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.site_compounds %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 4. Remote Location / Site Access -->
+    <div>4</div>
+    <div>{{ cdform.site_access.label }}</div>
+    <div>
+      {% if cdform.site_access.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.site_access %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 5. Project Classification / Price -->
+    <div>5</div>
+    <div>{{ cdform.price.label }}</div>
+    <div>
+      {% if cdform.price.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.price %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 6. Hazardous Waste -->
+    <div>6</div>
+    <div>{{ cdform.waste.label }}</div>
+    <div>
+      {% if cdform.waste.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.waste %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 7. Ground Conditions -->
+    <div>7</div>
+    <div>{{ cdform.ground.label }}</div>
+    <div>
+      {% if cdform.ground.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.ground %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 8. Existing Structures / Detail -->
+    <div>8</div>
+    <div>{{ cdform.existing_structures.label }}</div>
+    <div>
+      {% if cdform.existing_structures.data and (cdform.existing_structures.data != "Requirements:" or cdform.existing_structures_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.existing_structures %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+      {% set existing_structures_selected = cdform.existing_structures.data == "Requirements:" %}
+      <div class="subcard{% if not existing_structures_selected %} subcard--disabled{% endif %}">
+        {% for subfield in cdform.existing_structures_detail %}
+          <p>{{ subfield }} {{ subfield.label }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 9. Species -->
+    <div>9</div>
+    <div>{{ cdform.species.label }}</div>
+    <div>
+      {% if cdform.species.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.species %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 10. Adverse Influence / Detail -->
+    <div>10</div>
+    <div>{{ cdform.adverse_influence.label }}</div>
+    <div>
+      {% if cdform.adverse_influence.data and (cdform.adverse_influence.data != "Yes" or cdform.adverse_influence_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.adverse_influence %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+      {% set adverse_influence_selected = cdform.adverse_influence.data == "Yes" %}
+      <div class="subcard{% if not adverse_influence_selected %} subcard--disabled{% endif %}">
+        {% for subfield in cdform.adverse_influence_detail %}
+          <p>{{ subfield }} {{ subfield.label }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 11. Milestone -->
+    <div>11</div>
+    <div>{{ cdform.milestone.label }}</div>
+    <div>
+      {% if cdform.milestone.data %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.milestone %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+    </div>
+
+    <!-- 12. Missing Utilities / Detail -->
+    <div>12</div>
+    <div>{{ cdform.missing_utilities.label }}</div>
+    <div>
+      {% if cdform.missing_utilities.data and (cdform.missing_utilities.data != "Missing:" or cdform.missing_utilities_detail.data) %}
+        <span style="color:green;">&#10003;</span>
+      {% else %}
+        <span style="color:red;">&#10007;</span>
+      {% endif %}
+    </div>
+    <div class="card">
+      {% for subfield in cdform.missing_utilities %}
+        <p>{{ subfield }} {{ subfield.label }}</p>
+      {% endfor %}
+      {% set missing_utilities_selected = cdform.missing_utilities.data == "Missing:" %}
+      <div class="subcard{% if not missing_utilities_selected %} subcard--disabled{% endif %}">
+        {% for subfield in cdform.missing_utilities_detail %}
+          <p>{{ subfield }} {{ subfield.label }}</p>
+        {% endfor %}
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- 2. Designations / Designations Detail -->
-<div>2</div>
-<div>{{ cdform.designations.label }}</div>
-<div>
-  {% if cdform.designations.data and (cdform.designations.data != "Designations:" or cdform.designations_detail.data) %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.designations %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-  {% set designations_selected = cdform.designations.data == "Designations:" %}
-  <div class="subcard{% if not designations_selected %} subcard--disabled{% endif %}">
-    {% for subfield in cdform.designations_detail %}
-      <p>{{ subfield }} {{ subfield.label }}</p>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- 3. Site Compounds -->
-<div>3</div>
-<div>{{ cdform.site_compounds.label }}</div>
-<div>
-  {% if cdform.site_compounds.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.site_compounds %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 4. Remote Location / Site Access -->
-<div>4</div>
-<div>{{ cdform.site_access.label }}</div>
-<div>
-  {% if cdform.site_access.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.site_access %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 5. Project Classification / Price -->
-<div>5</div>
-<div>{{ cdform.price.label }}</div>
-<div>
-  {% if cdform.price.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.price %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 6. Hazardous Waste -->
-<div>6</div>
-<div>{{ cdform.waste.label }}</div>
-<div>
-  {% if cdform.waste.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.waste %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 7. Ground Conditions -->
-<div>7</div>
-<div>{{ cdform.ground.label }}</div>
-<div>
-  {% if cdform.ground.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.ground %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 8. Existing Structures / Detail -->
-<div>8</div>
-<div>{{ cdform.existing_structures.label }}</div>
-<div>
-  {% if cdform.existing_structures.data and (cdform.existing_structures.data != "Requirements:" or cdform.existing_structures_detail.data) %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.existing_structures %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-  {% set existing_structures_selected = cdform.existing_structures.data == "Requirements:" %}
-  <div class="subcard{% if not existing_structures_selected %} subcard--disabled{% endif %}">
-    {% for subfield in cdform.existing_structures_detail %}
-      <p>{{ subfield }} {{ subfield.label }}</p>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- 9. Species -->
-<div>9</div>
-<div>{{ cdform.species.label }}</div>
-<div>
-  {% if cdform.species.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.species %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 10. Adverse Influence / Detail -->
-<div>10</div>
-<div>{{ cdform.adverse_influence.label }}</div>
-<div>
-  {% if cdform.adverse_influence.data and (cdform.adverse_influence.data != "Yes" or cdform.adverse_influence_detail.data) %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.adverse_influence %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-  {% set adverse_influence_selected = cdform.adverse_influence.data == "Yes" %}
-  <div class="subcard{% if not adverse_influence_selected %} subcard--disabled{% endif %}">
-    {% for subfield in cdform.adverse_influence_detail %}
-      <p>{{ subfield }} {{ subfield.label }}</p>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- 11. Milestone -->
-<div>11</div>
-<div>{{ cdform.milestone.label }}</div>
-<div>
-  {% if cdform.milestone.data %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.milestone %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-</div>
-
-<!-- 12. Missing Utilities / Detail -->
-<div>12</div>
-<div>{{ cdform.missing_utilities.label }}</div>
-<div>
-  {% if cdform.missing_utilities.data and (cdform.missing_utilities.data != "Missing:" or cdform.missing_utilities_detail.data) %}
-    <span style="color:green;">&#10003;</span>
-  {% else %}
-    <span style="color:red;">&#10007;</span>
-  {% endif %}
-</div>
-<div class="card">
-  {% for subfield in cdform.missing_utilities %}
-    <p>{{ subfield }} {{ subfield.label }}</p>
-  {% endfor %}
-  {% set missing_utilities_selected = cdform.missing_utilities.data == "Missing:" %}
-  <div class="subcard{% if not missing_utilities_selected %} subcard--disabled{% endif %}">
-    {% for subfield in cdform.missing_utilities_detail %}
-      <p>{{ subfield }} {{ subfield.label }}</p>
-    {% endfor %}
-  </div>
-</div>
+</form>
 
 
 

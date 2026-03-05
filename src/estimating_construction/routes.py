@@ -14,6 +14,7 @@ from estimating_construction import app
 from estimating_construction.data import faked  #, models
 from estimating_construction.data import structures
 from estimating_construction.data.structures import CostDrivers
+from estimating_construction.forms import CostDriversStatusForm
 
 # from estimating_construction.forms import NewFullEnquiryForm
 # from estimating_construction.forms import DesignationsForm
@@ -33,9 +34,11 @@ from estimating_construction.forms import CostDriversForm
 # enqs = faked.create_full_record()
 # print(faked.create_estimate_enquiry())
 enqs = faked.create_estimate_enquiry()
-_cdn = enqs[0].cost_drivers[0]
+# _cdn = enqs[0].cost_drivers[0]
+_cdn = enqs[0].cost_driver_draft
 _cdn.status = "Final"
-_cdn.access = "Unconstrained"
+_cdn.access = "Constrained"
+_cdn.access_detail = ["Physically constrained access",]
 _cdn.designations = "No designation"
 _cdn.site_compounds = ["No compound (welfare only)",]
 _cdn.site_access = "No (Easily accessible with no major logistical issues)"
@@ -43,11 +46,14 @@ _cdn.price = "Standard Project (£1m-£50m)"
 _cdn.waste = "No"
 _cdn.ground = "No issues"
 _cdn.existing_structures = "No requirement"
+_cdn.existing_structures_detail = None
 _cdn.species = ["Common Species (e.g. native species with no special status)",]
 _cdn.adverse_influence = "No"
+_cdn.adverse_influence_detail = None
 _cdn.milestone = "Completion date set by programme logic (no constraints)"
 _cdn.missing_utilities = "None"
-enqs[0].cost_drivers[0] = _cdn
+_cdn.missing_utilities_detail = None
+# enqs[0].cost_drivers[0] = _cdn
 
 samples = {
     "projects": {"P1": "Test 1", "P2": "Test 2", "P3": "Test 3"},
@@ -112,28 +118,36 @@ def enquiries(id):
     except:
         return redirect(url_for('index'))
 
-    cdn = enq.cost_drivers[-1]
+    # cdn = enq.cost_drivers[-1]
+    cdn = enq.cost_driver_draft
     print(cdn)
     cdform = CostDriversForm(enqid=id,
                              access=cdn.access,
+                             access_detail=cdn.access_detail,
                              designations=cdn.designations,
+                             designations_detail=cdn.designations_detail,
                              site_compounds=cdn.site_compounds,
                              site_access=cdn.site_access,
                              price=cdn.price,
                              waste=cdn.waste,
                              ground=cdn.ground,
                              existing_structures=cdn.existing_structures,
+                             existing_structures_detail=cdn.existing_structures_detail,
                              species=cdn.species,
                              adverse_influence=cdn.adverse_influence,
+                             adverse_influence_detail=cdn.adverse_influence_detail,
                              milestone=cdn.milestone,
                              missing_utilities=cdn.missing_utilities,
+                             missing_utilities_detail=cdn.missing_utilities_detail,
                              )
     print(cdform.data)
+    cdstatusform = CostDriversStatusForm(enqid=id)
     return render_template('enquiries.html',
                            title=f"Enquiry Form {id}",
                            enq=enq,
                            cdn=cdn,
                            cdform=cdform,
+                           cdstatusform=cdstatusform,
                            )
 
 
@@ -210,6 +224,41 @@ def fd6dr():
 #     form = ProjectPriceFormRadio()
 #     return render_template('cost_driver_form.html', cdform=form)
 
+@app.route('/api/v1/s', methods=['POST',])
+# def cost_driver_questions(id):
+def cost_driver_status():
+    # return redirect(url_for('enquiries', id=idx))
+    # cdform = CostDriversForm(enqid=id)
+    cdstatusform = CostDriversStatusForm(enqid=id)
+    idx = cdstatusform.enqid.data
+    enq = enqs[int(idx)]
+    cdn = enq.cost_driver_draft
+    cdn.status = "Final"
+    _answers = CostDrivers(access=cdn.access,
+                           access_detail=cdn.access_detail,
+                           designations=cdn.designations,
+                           designations_detail=cdn.designations_detail,
+                           site_compounds=cdn.site_compounds,
+                           site_access=cdn.site_access,
+                           price=cdn.price,
+                           waste=cdn.waste,
+                           ground=cdn.ground,
+                           existing_structures=cdn.existing_structures,
+                           existing_structures_detail=cdn.existing_structures_detail,
+                           species=cdn.species,
+                           adverse_influence=cdn.adverse_influence,
+                           adverse_influence_detail=cdn.adverse_influence_detail,
+                           milestone=cdn.milestone,
+                           missing_utilities=cdn.missing_utilities,
+                           missing_utilities_detail=cdn.missing_utilities_detail,
+                           )
+    enq.cost_drivers.append(_answers)
+    return redirect(url_for('enquiries', id=idx))
+    # return render_template('cost_driver_form.html', 
+    #                        cdform=cdform, 
+    #                        cdn=cdn, 
+    #                        cdstatusform=cdstatusform,
+    #                        )
 
 @app.route('/api/v1/a', methods=['PUT', 'POST', 'PATCH',])
 # def cost_driver_questions(id):
@@ -217,31 +266,21 @@ def cost_driver_answers():
     # if form.validate_on_submit():
         # return 'WIN'
     # return 'LOSE'
-    # answer = request.form["designation"]
-    # return answer
-    # print(dir(request))
-    # print(vars(request))
     cdform = CostDriversForm()
     print(cdform.data)
     idx = cdform.enqid.data
     enq = enqs[int(idx)]
     
-    cdn = enq.cost_drivers[-1]
-    if cdform.submit.data:
-        cdn.status = "Final"
-        new_cdn = CostDrivers(version=cdn.version + 1)
-        enq.cost_drivers.append(new_cdn)
-        cdn = enq.cost_drivers[-1]
+    cdn = enq.cost_driver_draft
+    if cdn.status == "Final":
+        cdn.status = "Draft"
+        cdn.version = cdn.version + 1
 
-    if cdform.access.data == "Constrained":
-        cdn.access = cdform.access_detail.data
-    else:
-        cdn.access = cdform.access.data
+    cdn.access = cdform.access.data
+    cdn.access_detail = cdform.access_detail.data
 
-    if cdform.designations.data == "Designations:":
-        cdn.designations = cdform.designations_detail.data
-    else:
-        cdn.designations = cdform.designations.data
+    cdn.designations = cdform.designations.data
+    cdn.designations_detail = cdform.designations_detail.data
 
     cdn.site_compounds = cdform.site_compounds.data
     cdn.site_access = cdform.site_access.data
@@ -249,32 +288,38 @@ def cost_driver_answers():
     cdn.waste = cdform.waste.data
     cdn.ground = cdform.ground.data
 
-    if cdform.existing_structures.data == "Requirements:":
-        cdn.existing_structures = cdform.existing_structures_detail.data
-    else:
-        cdn.existing_structures = cdform.existing_structures.data
+    cdn.existing_structures = cdform.existing_structures.data
+    cdn.existing_structures_detail = cdform.existing_structures_detail.data
 
     cdn.species = cdform.species.data
 
-    if cdform.adverse_influence.data == "Yes":
-        cdn.adverse_influence = cdform.adverse_influence_detail.data
-    else:
-        cdn.adverse_influence = cdform.adverse_influence.data
+    cdn.adverse_influence = cdform.adverse_influence.data
+    cdn.adverse_influence_detail = cdform.adverse_influence_detail.data
     
     cdn.milestone = cdform.milestone.data
     
-    if cdform.missing_utilities.data == "Missing:":
-        cdn.missing_utilities = cdform.missing_utilities_detail.data
-    else:
-        cdn.missing_utilities = cdform.missing_utilities.data
+    cdn.missing_utilities = cdform.missing_utilities.data
+    cdn.missing_utilities_detail = cdform.missing_utilities_detail.data
 
-    if cdn.all_answered1:
+    if cdn.all_answered:
         cdn.status = "Ready"
+    else:
+        cdn.status = "Draft"
 
-    enq.cost_drivers[cdn.version] = cdn
-    print(enq.cost_drivers)
+    print(enq.cost_driver_draft)
+    print(enq.cost_driver_draft.all_answered)
+    print(cdn.all_answered)
+    # print(enq.cost_driver_draft.species_test)
+    # print(cdn.species_test)
+
+    cdstatusform = CostDriversStatusForm(enqid=id)
     
-    return render_template('cost_driver_form.html', cdform=cdform, cdn=cdn)
+    return render_template('cost_driver_form.html', 
+                           cdform=cdform, 
+                           cdn=cdn, 
+                           cdstatusform=cdstatusform,
+                           )
+    # return redirect(url_for('enquiries', id=idx))
 
 
 # @app.route('/api/v1/cd1', methods=['POST',])
